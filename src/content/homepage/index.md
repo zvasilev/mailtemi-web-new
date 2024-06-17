@@ -21,6 +21,8 @@ service:
           icon: "tabler:users"  
           image: "/images/collaboration.png"
 
+          
+
   our_service:
     - title: One View for All Accounts and Subfolders? 
       description: View messages from all folders at once, supporting GMail and JMAP labels. Sync folders seamlessly for easy organization. Enjoy synchronized Display Names and Label colors for a clutter-free email experience. Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
@@ -32,6 +34,8 @@ service:
         - JMAP (JSON Meta Application Protocol)
         - IMAP (Internet Message Access Protocol)
         - MSGraph (Microsoft Graph)
+
+
     
 
 ##key features
@@ -39,36 +43,27 @@ key_features:
   title: "The Highlighting Part Of Our Solution"
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
   feature_list:
-    - icon: "tabler:mailbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Sound Amplifier
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Smart Reply
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-      title: Live Caption
-      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.        
+    - icon: "tabler:inbox"  
+      title: Unified Inbox
+      content: Regardless of server support for folders or labels, Mailtemi synchronizes all mail items and presents them in a unified view. Folders or labels are displayed as label tags, ensuring seamless organization and access to all your emails in one place.
+    - icon: "tabler:markdown"  
+      title: Markdown
+      content: In addition to being a Markdown editor like others, Mailtemi offers a unique feature to convert HTML-only emails into Markdown. This allows for viewing emails in plain format, ensuring the most secure way to read emails. This feature can be opted into from the settings for enhanced privacy and readability.
+    - icon: "tabler:shield"  
+      title: Tracking Prevention
+      content: Mailtemi empowers you to manage remotely loaded images with our automatic detection and filtering system. Choose to display images automatically, require approval for each instance, or manually approve them. This feature helps safeguard your privacy by preventing unwanted tracking through email images.
+    - icon: "tabler:spy-off"  
+      title: Privacy
+      content: We prioritize your privacy by abstaining from collecting or analyzing any of your data. All actions are executed exclusively on your device, ensuring that your information remains secure and confidential.
+    - icon: "tabler:palette"  
+      title: Account Colors
+      content: Assign a unique color to each email account, making it easy to identify messages and labels associated with each one at a glance.
+    - icon: "tabler:send"  
+      title: JMAP Aliases
+      content: Compose ameil from any JMAP Alias configured in your account, and send through that alias.
+    - icon: "tabler:user-circle"  
+      title: Avatars and Brand Identities
+      content: Fetch contact info, avatars and brand images. Possible by use a large API protocols support such as CardDAV, Google People API, MSGraph Users, iPhone Contacts, Gravatar, BIMI and more for a seamless and enhanced email sender context. Syncs and adds context to your emails - avatars and other email addresses.       
 
 #testimonial
 testimonial:

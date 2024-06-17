@@ -41,7 +41,7 @@ gallery:
 features:
   title: The six core work <br /> drive everything do
   button:
-    label: "Unify All Inbox"
+    label: "Unify All Inboxes"
     link: "https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306"
     enable: true
   features_list:
