@@ -15,7 +15,7 @@ service:
     description: View messages from all folders at once, supporting GMail and JMAP labels. Sync folders seamlessly for easy organization. Enjoy synchronized Display Names and Label colors for a clutter-free email experience. Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
     tab_list:
         - title: Habit building essential choose habit
-          icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+          icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
           image: "/images/sells-by-country.png"
         - title: Get an overview of Habit Calendars.
           icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]

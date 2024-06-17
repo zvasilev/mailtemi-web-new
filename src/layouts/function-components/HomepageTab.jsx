@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { humanize } from "@/lib/utils/textConverter";
-import * as Icon from "react-feather";
+//import * as Icon from "react-feather";
+import { Icon } from 'astro-icon/components';
+import { IconArrowLeft } from '@tabler/icons-react';
 
 const HomepageTab = ({ homepage_tab: { tab_list, title, description } }) => {
   const [tab, setTab] = useState(0);
@@ -26,7 +28,7 @@ const HomepageTab = ({ homepage_tab: { tab_list, title, description } }) => {
           <p className="mt-4">{description}</p>
           <ul className="tab-nav mt-8 border-b-0">
             {tab_list.map((item, index) => {
-              const FeatherIcon = Icon[humanize(item.icon)];
+              
               return (
                 <li
                   key={index}
@@ -38,7 +40,8 @@ const HomepageTab = ({ homepage_tab: { tab_list, title, description } }) => {
                 >
                   <span className="tab-icon mr-3">
                     {" "}
-                    <FeatherIcon />
+                    
+                    return <IconArrowLeft />
                   </span>
                   {item.title}
                 </li>
