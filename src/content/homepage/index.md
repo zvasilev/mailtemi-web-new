@@ -14,40 +14,25 @@ service:
     title: One View for All Accounts and Subfolders? 
     description: View messages from all folders at once, supporting GMail and JMAP labels. Sync folders seamlessly for easy organization. Enjoy synchronized Display Names and Label colors for a clutter-free email experience. Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
     tab_list:
-        - title: Habit building essential choose habit
-          icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
+        - title: Mail
+          icon: "tabler:inbox" 
           image: "/images/sells-by-country.png"
-        - title: Get an overview of Habit Calendars.
-          icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
+        - title: Contacts
+          icon: "tabler:users"  
           image: "/images/collaboration.png"
-        - title: Start building with Habitify platform
-          icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
-          image: "/images/sells-by-country.png"
 
   our_service:
-    - title: Accept payments any country in this whole universe
-      desctiption: Donec sollicitudin molestie malesda. Donec sollitudin molestie malesuada. Mauris pellentesque nec, egestas non nisi. Cras ultricies ligula sed
+    - title: One View for All Accounts and Subfolders? 
+      description: View messages from all folders at once, supporting GMail and JMAP labels. Sync folders seamlessly for easy organization. Enjoy synchronized Display Names and Label colors for a clutter-free email experience. Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
+      image: "/images/iphone/inbox1.jpg"
+    - title: Support multiple mail protocols
+      description: Our system offers robust support for multiple mail protocols, ensuring seamless integration and interoperability across various email services.
       image: "/images/collaboration.png"
       list:
-        - Supporting more than 119 country world
-        - Open transaction with more than currencies
-        - Customer Service with 79 languages
-    - title: 111 Accept payments any country in this whole universe
-      desctiption: Donec sollicitudin molestie malesda. Donec sollitudin molestie malesuada. Mauris pellentesque nec, egestas non nisi. Cras ultricies ligula sed
-      image: "/images/collaboration.png"
-      list:
-        - Supporting more than 119 country world
-        - Open transaction with more than currencies
-        - Customer Service with 79 languages
-    - title: Accountability that works for you
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
-      video:
-        thumbnail: "/images/intro-thumbnail.png"
-        video_id: "g3-VxLQO7do"
-      button:
-        label: Know About Us
-        link: "#"
-        enable: true
+        - JMAP (JSON Meta Application Protocol)
+        - IMAP (Internet Message Access Protocol)
+        - MSGraph (Microsoft Graph)
+    
 
 ##key features
 key_features:

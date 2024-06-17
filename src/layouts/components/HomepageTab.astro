@@ -1,0 +1,55 @@
+---
+import Icon from "node_modules/astro-icon/components/Icon.astro";
+const { homepage_tab } = Astro.props;
+---
+
+<div class="tab gx-5 row items-center">
+  <div class="lg:col-7 lg:order-2">
+    <div class="tab-content">
+      {homepage_tab.tab_list.map((item, index) => (
+        <div
+          key={index}
+          class={`tab-content-panel tab-content-panel-${index} ${index === 0 ? 'active' : ''}`}
+        >
+          <img class="w-full object-contain" src={item.image} />
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="mt-6 lg:col-5 lg:order-1 lg:mt-0">
+    <div class="text-container">
+      <h2 class="lg:text-4xl">{homepage_tab.title}</h2>
+      <p class="mt-4">{homepage_tab.description}</p>
+      <ul class="tab-nav mt-8 border-b-0">
+        {homepage_tab.tab_list.map((item, index) => (
+          <li
+            key={index}
+            class={`tab-nav-item tab-nav-item-${index} ${index === 0 ? 'active' : ''}`}
+          >
+            <span class="tab-icon mr-3">
+              <Icon name={item.icon} class="icon" />
+            </span>
+            {item.title}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const tabItems = document.querySelectorAll('.tab-nav-item');
+    const tabContentPanels = document.querySelectorAll('.tab-content-panel');
+
+    tabItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        tabItems.forEach(item => item.classList.remove('active'));
+        tabContentPanels.forEach(panel => panel.classList.remove('active'));
+
+        item.classList.add('active');
+        document.querySelector(`.tab-content-panel-${index}`).classList.add('active');
+      });
+    });
+  });
+</script> 
