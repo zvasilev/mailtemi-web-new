@@ -18,10 +18,10 @@ service:
           icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
           image: "/images/sells-by-country.png"
         - title: Get an overview of Habit Calendars.
-          icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+          icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
           image: "/images/collaboration.png"
         - title: Start building with Habitify platform
-          icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+          icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
           image: "/images/sells-by-country.png"
 
   our_service:
@@ -54,34 +54,34 @@ key_features:
   title: "The Highlighting Part Of Our Solution"
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
   feature_list:
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:mailbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Live Caption
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Smart Reply
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Sound Amplifier
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Sound Amplifier
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Smart Reply
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Live Caption
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Sound Amplifier
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Sound Amplifier
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Smart Reply
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    - icon: "inbox"  #icon package react-feather-icon [https://feathericons.com/]
+    - icon: "tabler:inbox"  #icon package react-feather-icon [https://feathericons.com/]
       title: Live Caption
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.        
 
