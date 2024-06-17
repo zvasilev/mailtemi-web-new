@@ -1,14 +1,14 @@
 {
   "site": {
-    "title": "Pinwheel Astro",
-    "base_url": "https://pinwheel-astro.vercel.app",
+    "title": "Mailtemi | JMAP/MS Graph/IMAP email app",
+    "base_url": "https://mailtemi.com",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.svg",
     "logo": "/images/logo.png",
     "logo_width": "147",
     "logo_height": "31",
-    "logo_text": "Pinwheel"
+    "logo_text": "Mailtemi"
   },
 
   "settings": {
@@ -33,10 +33,9 @@
   },
 
   "params": {
-    "footer_description": "Lorem ipsum dolor sit sed dmi amet, consectetur adipiscing. Cdo tellus, sed condimentum volutpat.",
-    "email": "info@andromeda.io",
-    "location": "2118 Thornridge Cir. Syracuse, Connecticut 35624",
-    "phone": "+704-555-0127",
+    "footer_description": "Mailtemi EOOD, a company registered in Bulgaria.",
+    "email": "support@mailtemi.com",
+    "location": "Bulgaria, Sofia, Sveti Kiprian 281",
     "contact_form_action": "#",
     "copyright": "Copyright © 2023 a theme by [Themefisher](https://themefisher.com)"
   },
