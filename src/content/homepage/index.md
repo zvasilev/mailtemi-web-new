@@ -45,28 +45,28 @@ key_features:
   feature_list:
     - icon: "tabler:inbox"  
       title: Unified Inbox
-      content: Regardless of server support for folders or labels, Mailtemi synchronizes all mail items and presents them in a unified view. Folders or labels are displayed as label tags, ensuring seamless organization and access to all your emails in one place.
+      content: Regardless of server support for folders or labels, Mailtemi synchronizes all mail items and presents them in a unified view.<br><br> Folders or labels are displayed as label tags, ensuring seamless organization and access to all your emails in one place.
     - icon: "tabler:users"  
       title: Contacts
-      content: Synchronization of your contacts using supported protocols like CardDAV, MS Graph Users, Google People, and soon JMAP Contacts. Stay connected and organized with all your contacts in one place.
+      content: Synchronization of your contacts using supported protocols like CardDAV, MS Graph Users, Google People, and soon JMAP Contacts.<br><br> Stay connected and organized with all your contacts in one place.
     - icon: "tabler:markdown"  
       title: Markdown
-      content: In addition to being a Markdown editor like others, Mailtemi offers a unique feature to convert HTML-only emails into Markdown. This allows for viewing emails in plain format, ensuring the most secure way to read emails. This feature can be opted into from the settings for enhanced privacy and readability.
+      content: In addition to being a Markdown editor like others, Mailtemi offers a unique feature to convert HTML-only emails into Markdown. This allows for viewing emails in plain format, ensuring the most secure way to read emails.<br><br> This feature can be opted into from the settings for enhanced privacy and readability.
     - icon: "tabler:shield"  
       title: Tracking Prevention
-      content: Mailtemi empowers you to manage remotely loaded images with our automatic detection and filtering system. Choose to display images automatically, require approval for each instance, or manually approve them. This feature helps safeguard your privacy by preventing unwanted tracking through email images.
+      content: Mailtemi empowers you to manage remotely loaded images with our automatic detection and filtering system.<br><br> Choose to display images automatically, require approval for each instance, or manually approve them. This feature helps safeguard your privacy by preventing unwanted tracking through email images.
     - icon: "tabler:spy-off"  
       title: Privacy
-      content: We prioritize your privacy by abstaining from collecting or analyzing any of your data. All actions are executed exclusively on your device, ensuring that your information remains secure and confidential.
+      content: We prioritize your privacy by abstaining from collecting or analyzing any of your data.<br><br> All actions are executed exclusively on your device, ensuring that your information remains secure and confidential.
     - icon: "tabler:palette"  
       title: Account Colors
       content: Assign a unique color to each email account, making it easy to identify messages and labels associated with each one at a glance.
     - icon: "tabler:send"  
-      title: JMAP Aliases
-      content: Compose ameil from any JMAP Alias configured in your account, and send through that alias.
+      title: Send Identities
+      content: Compose ameil from any JMAP Alias(Send Identities) configured in your account, and send through that alias. <br><br>Identities are helpful if you want to send mail from different addresses or names without creating multiple users.
     - icon: "tabler:user-circle"  
       title: Avatars and Brand Identities
-      content: Fetch contact info, avatars and brand images. Possible by use a large API protocols support such as CardDAV, Google People API, MSGraph Users, iPhone Contacts, Gravatar, BIMI and more for a seamless and enhanced email sender context. Syncs and adds context to your emails - avatars and other email addresses.       
+      content: Fetch contact info, avatars and brand images.<br><br> Possible by use a large API protocols support such as CardDAV, Google People API, MSGraph Users, iPhone Contacts, Gravatar, BIMI and more for a seamless and enhanced email sender context.<br><br> Syncs and adds context to your emails - avatars and other email addresses.       
 
 #testimonial
 testimonial:
