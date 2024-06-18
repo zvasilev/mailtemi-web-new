@@ -1,0 +1,29 @@
+---
+title: "FAQs"
+draft: false
+---
+
+1. ###### Why are there no push notifications?
+    Push notifications will be available only for protocols that support this feature by design, such as JMAP, MSGraph, and the Gmail API.
+    IMAP does not have a secure standard for push notifications.
+    Implementing this would require access to the user's password, which is not acceptable and will not be supported by Mailtemi.
+
+2. ###### Monetization
+    Our goal is to build a free and fast email app.
+    However, features like push notifications, which require a proxy service and incur traffic costs, will require a subscription.
+
+3. ###### How are credentials stored?
+    Mailtemi follows the best practices of Apple Keychain services to ensure your credentials are stored securely. 
+    During setup, account details, app passwords, API tokens, etc., are securely saved via Apple Keychain services. 
+    You can read more about it [here](https://developer.apple.com/documentation/security/keychain_services).
+
+4. ###### My mail service is not listed in "Add Account" in the app.
+    Many email service providers offer "App passwords" or "API tokens" that you can generate specifically for Mailtemi.
+    This authentication mode("App passwords" or "API tokens") is supported for JMAP/IMAP protocols.
+
+5. ###### What protocols are supported?
+    Mailtemi supports JMAP, IMAP, MSGraph, CarDAV, and Google People protocols.
+    Currently, these protocols are used for email synchronization and enhancing emails with the correct avatar and display name.
+
+6. ###### How do I contact support?
+   Please email us at support@mailtemi.com to get in touch with support.
