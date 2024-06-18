@@ -1,5 +1,6 @@
 ---
 import Icon from "node_modules/astro-icon/components/Icon.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 const { feature_list } = Astro.props;
 ---
 
@@ -9,7 +10,7 @@ const { feature_list } = Astro.props;
       <div class="flex flex-col justify-between rounded-lg bg-white p-5 shadow-lg">
         <div>
               <h3 class="h4 text-xl lg:text-2xl">{item.title}</h3>
-              <p>{item.content}</p>
+              <p set:html={markdownify(item.content)}/>
             </div>
             <span class="icon mt-4">
               <Icon name={item.icon} class="icon" />

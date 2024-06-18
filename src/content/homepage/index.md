@@ -77,7 +77,7 @@ testimonial:
       organization: Jsfrederick
       rating: five
       content: I really liked this email client. It natively supports JMAP and works VERY well with Fastmail. It’s screaming fast and updates new email quickly. Very pleasant to look at and easy to navigate. I look forward to further development and the addition of new features. Overall a great product. I am willing to pay a modest yearly fee to fund further development.
-    - author: Should be \#1 mail app in App Store
+    - author: Should be \# 1 mail app in App Store
       organization: vasan musicbox
       rating: five
       content: "This app ticks all the boxes for me. I tested all others listed in AppStore and find this appealing for following reasons 
