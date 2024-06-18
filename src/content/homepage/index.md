@@ -12,7 +12,7 @@ banner:
 service:
   homepage_tab:
     title: One View for All Accounts and Subfolders? 
-    description: View messages from all folders at once, supporting GMail and JMAP labels. Sync folders seamlessly for easy organization. Enjoy synchronized Display Names and Label colors for a clutter-free email experience. Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
+    description: View messages from all folders at once, supporting GMail and JMAP labels.<br>Sync folders seamlessly for easy organization.<br> Enjoy synchronized Display Names and Label colors for a clutter-free email experience. Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
     tab_list:
         - title: Mail
           icon: "tabler:inbox" 
@@ -25,7 +25,7 @@ service:
 
   our_service:
     - title: One View for All Accounts and Subfolders? 
-      description: View messages from all folders at once, supporting GMail and JMAP labels. Sync folders seamlessly for easy organization. Enjoy synchronized Display Names and Label colors for a clutter-free email experience. Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
+      description: View messages from all folders at once, supporting GMail and JMAP labels.<br><br>Sync folders seamlessly for easy organization.<br> Enjoy synchronized Display Names and Label colors for a clutter-free email experience. <br><br>Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
       image: "/images/iphone/inbox1.jpg"
     - title: Support multiple mail protocols
       description: Our system offers robust support for multiple mail protocols, ensuring seamless integration and interoperability across various email services.

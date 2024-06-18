@@ -1,5 +1,8 @@
 ---
+import { markdownify } from "@/lib/utils/textConverter";
 import Icon from "node_modules/astro-icon/components/Icon.astro";
+
+
 const { homepage_tab } = Astro.props;
 ---
 
@@ -19,7 +22,7 @@ const { homepage_tab } = Astro.props;
   <div class="mt-6 lg:col-5 lg:order-1 lg:mt-0">
     <div class="text-container">
       <h2 class="lg:text-4xl">{homepage_tab.title}</h2>
-      <p class="mt-4">{homepage_tab.description}</p>
+      <p set:html={markdownify(homepage_tab.description)} />
       <ul class="tab-nav mt-8 border-b-0">
         {homepage_tab.tab_list.map((item, index) => (
           <li

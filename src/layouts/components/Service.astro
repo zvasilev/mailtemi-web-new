@@ -1,5 +1,6 @@
 ---
 //import HomepageTab from "./HomepageTab.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 import VideoComponent from "@/layouts/function-components/VideoComponent";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { Image } from "astro:assets";
@@ -52,7 +53,7 @@ const { homepage_tab, our_service } = service;
           >
             <div class="text-container">
               <h2 class="lg:text-4xl">{item.title}</h2>
-              <p class="mt-4">{item.description}</p>
+              <p set:html={markdownify(item.description)} />
               {item.button && item.button.enable && (
                 <a class="btn btn-white mt-6" href={item.button.link}>
                   {item.button.label}
