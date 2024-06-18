@@ -46,6 +46,9 @@ key_features:
     - icon: "tabler:inbox"  
       title: Unified Inbox
       content: Regardless of server support for folders or labels, Mailtemi synchronizes all mail items and presents them in a unified view. Folders or labels are displayed as label tags, ensuring seamless organization and access to all your emails in one place.
+    - icon: "tabler:users"  
+      title: Contacts
+      content: Synchronization of your contacts using supported protocols like CardDAV, MS Graph Users, Google People, and soon JMAP Contacts. Stay connected and organized with all your contacts in one place.
     - icon: "tabler:markdown"  
       title: Markdown
       content: In addition to being a Markdown editor like others, Mailtemi offers a unique feature to convert HTML-only emails into Markdown. This allows for viewing emails in plain format, ensuring the most secure way to read emails. This feature can be opted into from the settings for enhanced privacy and readability.
