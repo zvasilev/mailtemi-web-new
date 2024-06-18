@@ -1,24 +1,119 @@
 ---
-title: How Video Analytics Can Help Understand and Increase
-subtitle: Mauris blandit aliquet elit, eget tincidunt nibh dolor sit amet,
-image: "/images/posts/plain-vs-html.webp"
-author: Abdullah Al Shifat
-date: 2022-04-04T05:00:00Z
-categories: ["development", "design"]
+title: Why JMAP Protocol is Faster
+subtitle: JMAP significantly improves email communication speed and efficiency by bundling multiple operations into a single request, reducing the roundtrips needed for synchronization tasks compared to IMAP. This blog post will explain with short examples why JMAP is faster.
+image: "/images/posts/jmap-vs-imap.png"
+author: Al Murad Uzzaman
+date: 2024-06-15T05:00:00Z
+categories: ["Tech"]
 featured: false
-draft: true
+draft: false
 ---
 
-Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget
 
-Pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet Faucibus consectetur tempus adipiscing vitae. Nec blandit tincidunt nibh nisi, quam volutpat. In lacus laoreet diam risus. Mauris, risus faucibus sagittis sagittis tincidunt id justo. Diam massa pretium consequat mauris viverra. Sagittis eu libero
+The JSON Meta Application Protocol (JMAP) is becoming a highly regarded protocol for email communication, renowned for its speed and efficiency compared to IMAP, the predominant protocol currently in use. 
+Created by Fastmail around 2014 and standardized by the Internet Engineering Task Force (IETF) as RFC 8620 in 2019, JMAP was designed to modernize and simplify email synchronization and access.
 
-<Blockquote name="Alexender Smith">
-  A wise girls her limit to touch.To Repellat neque praesentium .The me an idea,
-  so I as quickly To get.
-</Blockquote>
+Although JMAP provides many significant and subtle improvements, for clarity, this blog post will provide examples specifically with initial synchronization and re-synchronization to illustrate why JMAP is faster.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent volutpat tortor. Ipsum eget sed tempus luctus nisl. Ut etiam molestie mattis at faucibus mi at pellentesque. Pellentesque morbi nunc, curabitur arcu euismod suscipit. Duis mi sapien, nisl, pulvinar donec non dictum
+# Initial Synchronization
 
-Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis cursus id.
-Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet dignissim. Faucibus non tristique eu.
+## IMAP Initial Synchronization
+
+IMAP requires multiple roundtrips to achieve initial synchronization. 
+Let’s break down the steps involved:
+
+1. Establish a Connection and Log In
+``` sql
+C: LOGIN username password
+S: OK LOGIN completed
+```
+2. Select the "Inbox" Folder for Synchronization
+
+``` sql
+C: SELECT INBOX
+S: * FLAGS (\Answered \Flagged \Draft \Deleted \Seen)
+S: * OK [PERMANENTFLAGS (\Answered \Flagged \Draft \Deleted \Seen \*)] Flags permitted.
+S: * OK [UIDVALIDITY 3857529045] UIDs valid.
+S: * 1134 EXISTS
+S: * 1 RECENT
+S: * OK [UIDNEXT 4392] Predicted next UID.
+S: * OK [HIGHESTMODSEQ 887] Highest MODSEQ value.
+S: S: * OK [UIDVALIDITY 3857529045] UIDs valid.
+S: SELECT completed.
+```
+3. Fetch Headers of Emails in the "Inbox"
+``` sql
+C: FETCH 1:10 (ENVELOPE)
+S: * 1 FETCH (ENVELOPE ("Tue, 1 Jan 2024 12:00:00 +0000" "Subject 1" (("Sender 1" NIL "sender1@example.com")) NIL NIL NIL NIL NIL))
+S: * 2 FETCH (ENVELOPE ("Wed, 2 Jan 2024 12:00:00 +0000" "Subject 2" (("Sender 2" NIL "sender2@example.com")) NIL NIL NIL NIL NIL))
+...
+```
+
+This process is **repeated** for the other two folders (Drafts and SubFolderA), resulting in at least two requests per folder. 
+For this example with three folders, there are a minimum of **7 roundtrips**.
+
+## JMAP Initial Synchronization
+
+With JMAP, the same synchronization can be achieved with fewer roundtrips due to its ability to bundle multiple operations into a single request. 
+Here's a simplified example of how this would look:
+1. Fetch Folders and Messages in One Request
+``` json
+{
+    "methodCalls": [
+        ["Mailbox/get", {"accountId": "h", "ids": ["a", "b"], "properties": ["name", "parentId", "role", "myRights", "totalEmails"]}, "a2cc36790"],
+        ["Email/query", {"accountId": "h", "calculateTotal": true, "collapseThreads": false, "filter": {"conditions": [{"inMailbox": "a"}, {"inMailbox": "b"}, {"inMailbox": "c"}, {"inMailbox": "e"}], "operator": "OR"}, "limit": 2, "position": 0, "sort": [{"isAscending": false, "property": "receivedAt"}]}, "a2cc36791"],
+        ["Email/get", {"#ids": {"name": "Email/query", "path": "/ids", "resultOf": "a2cc36791"}, "accountId": "h", "bodyProperties": ["partId", "blobId", "size", "name", "type", "disposition", "cid", "header:Content-Type"], "properties": ["threadId", "receivedAt", "keywords", "mailboxIds", "hasAttachment", "preview", "headers"]}, "a2cc36792"]
+    ],
+    "using": ["urn:ietf:params:jmap:mail"]
+}
+```
+
+In this single JMAP request, we can:
+
+- Fetch the list of folders.
+- Query the emails in the Inbox.
+- Get the details of the emails returned by the query.
+
+This reduces the number of roundtrips drastically. Instead of 7 roundtrips (as in the IMAP example), we achieve the same with just 1 roundtrip.
+
+## IMAP Re-Synchronization with CONDSTORE/QRESYNC Extensions
+IMAP, when equipped with the CONDSTORE and QRESYNC extensions, can achieve more efficient re-synchronization compared to standard IMAP.
+
+When a client reconnects to the server for re-synchronization, it can send a special IMAP command called SELECT with the CONDSTORE option. 
+This command instructs the server to enter a selected state for the specified mailbox and send any updates that have occurred since a given MODSEQ value.
+Here's how the re-synchronization process unfolds with CONDSTORE/QRESYNC extensions:
+1. Client Requests Re-Synchronization
+``` sql
+C: SELECT INBOX (CONDSTORE)
+S: * FLAGS (\Answered \Flagged \Draft \Deleted \Seen)
+S: * OK [PERMANENTFLAGS (\Answered \Flagged \Draft \Deleted \Seen \*)] Flags permitted.
+S: * 1134 EXISTS
+S: * 1 RECENT
+S: * OK [UIDNEXT 4392] Predicted next UID.
+S: * OK [HIGHESTMODSEQ 887] Highest MODSEQ value.
+S: S: * OK [UIDVALIDITY 3857529045] UIDs valid.
+S: SELECT completed.
+```
+
+Although this approach is performant, it's important to note that it's still **repeated** for each folder. With JMAP, similar re-synchronization tasks can be consolidated into a single call, further optimizing the synchronization process and reducing network overhead.
+
+# More Niceties of JMAP
+Beyond its speed and efficiency in synchronization, JMAP offers several other advantages that improve overall email management and user experience:
+1. Immutable IDs
+JMAP assigns immutable IDs to messages, which ensures that each email has a unique and constant identifier. 
+This feature simplifies email management and synchronization, reducing the complexity associated with changing message IDs in IMAP.
+2. Efficient Attachment Handling
+JMAP allows clients to upload only the attachments of an email draft separately, rather than resending the entire email content. 
+This significantly saves network bandwidth and improves the efficiency of handling large attachments.
+3. Built-In Push Notifications
+JMAP includes support for push notifications within its specification, enabling real-time updates for new emails and changes. IMAP doesn't offer such functionality. 
+So there are different proprietary APIs different for each service (for example GMail Push Notifications API).
+4. Unified Data Access
+JMAP can handle multiple types of data, including email, contacts, and calendars, within a single protocol. 
+This unified approach simplifies the development of client applications and provides a consistent interface for accessing different types of data. 
+As of writing, JMAP Contacts/Calendaring is still draft RFCs.
+
+# Conclusion
+JMAP's ability to chain multiple operations into a single request, combined with its efficient handling of state changes, immutable IDs, and robust draft synchronization, makes it a significantly faster protocol than IMAP. 
+By reducing the number of roundtrips required for synchronization tasks, JMAP not only speeds up the process but also improves the overall user experience with quicker and more reliable email access. 
+Despite the current limited adoption, the future looks promising as more providers and applications embrace JMAP for its superior performance and developer-friendly design.

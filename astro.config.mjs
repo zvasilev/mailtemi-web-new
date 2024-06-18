@@ -70,7 +70,7 @@ export default defineConfig({
     ],
     shikiConfig: {
       theme: "one-dark-pro",
-      wrap: true,
+      wrap: false,
     },
     extendDefaultPlugins: true,
   },
