@@ -40,8 +40,12 @@
 
   "footer": [
     {
-      "name": "About",
-      "url": "/about"
+      "name": "Terms",
+      "url": "/terms"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy-policy"
     },
     {
       "name": "Changelog",

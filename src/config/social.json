@@ -1,9 +1,9 @@
 {
-  "facebook": "https://facebook.com/",
-  "twitter": "https://twitter.com/",
+  "mastodon": "https://mastodon.social/@MailtemiApp",
+  "twitter": "https://x.com/Mailtemi1",
   "instagram": "",
   "youtube": "",
-  "linkedin": "https://linkedin.com/",
+  "linkedin": "",
   "github": "",
   "gitlab": "",
   "medium": "",
@@ -22,9 +22,9 @@
   "tiktok": "",
   "foursquare": "",
   "rss": "",
-  "email": "",
+  "email": "support@mailtemi.com",
   "phone": "",
   "address": "",
-  "skype": "https://skype.com/",
+  "skype": "",
   "website": ""
 }
