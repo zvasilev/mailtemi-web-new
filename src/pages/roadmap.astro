@@ -7,7 +7,7 @@ import Cta from "@/layouts/partials/Cta.astro";
 import { getEntryBySlug } from "astro:content";
 import { AiFillCheckCircle } from "react-icons/ai";
 
-const how_it_works = await getEntryBySlug("how-it-works", "index");
+const how_it_works = await getEntryBySlug("roadmap", "index");
 const { perfomance, our_works } = how_it_works.data;
 const page_data = {
   ...how_it_works.data,

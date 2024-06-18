@@ -10,19 +10,31 @@
     },
     {
       "name": "FAQs",
-      "url": "/features"
+      "url": "/faq"
     },
     {
       "name": "Roadmap",
-      "url": "/how-it-works"
+      "url": "/roadmap"
     },
     {
       "name": "Changelog",
       "url": "/changelog"
     },
     {
-      "name": "Terms And Conditions",
-      "url": "/terms-and-conditions"
+      "name": "Terms & Privacy",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Terms",
+          "url": "/terms"
+        },
+
+        {
+          "name": "Privacy Policy",
+          "url": "/privacy-policy"
+        }
+      ]
     }
   ],
 
@@ -30,14 +42,6 @@
     {
       "name": "About",
       "url": "/about"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
-      "name": "Elements",
-      "url": "/elements"
     },
     {
       "name": "Changelog",
