@@ -29,7 +29,7 @@ service:
       image: "/images/iphone/inbox1.jpg"
     - title: Support multiple mail protocols
       description: Our system offers robust support for multiple mail protocols, ensuring seamless integration and interoperability across various email services.
-      image: "/images/collaboration.png"
+      image: "/images/protocols.jpeg"
       list:
         - JMAP (JSON Meta Application Protocol)
         - IMAP (Internet Message Access Protocol)
