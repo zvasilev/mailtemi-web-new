@@ -6,7 +6,7 @@ draft: false
 
 ### 1. Your Privacy
 
-Our [Privacy Policy](https://mailtemi.com/privacy-policy) explains the way we handle and protect your personal data and privacy in relation to your use of the app.
+Our [Privacy Policy](https://mailtemi.com/privacy) explains the way we handle and protect your personal data and privacy in relation to your use of the app.
 
 ### 2. Your Content
 

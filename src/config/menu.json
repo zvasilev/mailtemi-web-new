@@ -32,7 +32,7 @@
 
         {
           "name": "Privacy Policy",
-          "url": "/privacy-policy"
+          "url": "/privacy"
         }
       ]
     }
@@ -45,7 +45,7 @@
     },
     {
       "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "url": "/privacy"
     },
     {
       "name": "Changelog",
