@@ -413,34 +413,6 @@ select:invalid {
     @apply border-b-0 bg-primary/40 py-3.5;
   }
 }
-// career
-.benifit-icon {
-  svg {
-    @apply h-8 w-24 text-xl text-dark;
-  }
-}
-//footer
-.footer {
-  h6 {
-    @apply mb-4 font-primary font-semibold lg:mb-8;
-  }
-
-  p {
-    @apply text-sm;
-  }
-
-  li > a {
-    @apply text-sm hover:text-primary hover:underline;
-  }
-}
-
-//gradient-number
-.gradient-number {
-  span {
-    @apply bg-clip-text font-primary text-4xl font-bold leading-none;
-    -webkit-text-fill-color: transparent;
-  }
-}
 
 //card
 .card {
