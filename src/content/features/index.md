@@ -6,7 +6,7 @@ banner:
   image: "/images/features-banner-img.png"
   button:
     label: Download The Theme
-    link: "https://themefisher.com/astro-themes/pinwheel-astro"
+    link: "https://mailtemi.com"
     enable: true
 project_management:
   title: Build collaborative workspaces <br /> for your team
