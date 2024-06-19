@@ -1,6 +1,7 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
+import HomapageFeature from "./HomapageFeature.astro";
 const { key_features } = Astro.props;
 const { title, description, feature_list } = key_features;
 ---
@@ -22,5 +23,6 @@ const { title, description, feature_list } = key_features;
         <p set:html={markdownify(description)} />
       </div>
     </div>
+    <HomapageFeature feature_list={feature_list}/>
   </div>
 </section>
