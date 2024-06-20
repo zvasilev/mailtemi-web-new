@@ -1,0 +1,184 @@
+---
+title: Why JMAP Protocol is Faster
+subtitle: JMAP significantly improves email communication speed and efficiency by bundling multiple operations into a single request, reducing the roundtrips needed for synchronization tasks compared to IMAP. This blog post will explain with short examples why JMAP is faster.
+image: "/images/posts/jmap-vs-imap.png"
+author: Zhivko Vasilev
+date: 2024-06-20T05:00:00Z
+categories: ["Tech"]
+featured: false
+draft: false
+---
+
+While there are many technical advantages for developers using JMAP, this blog post focuses on why JMAP is better for users.
+Simply it syncs faster! 
+JMAP includes all the optional IMAP extensions for efficient synchronization as mandatory in the protocol, ensuring a quicker and more seamless email experience. Through examples of initial synchronization and re-synchronization, we will illustrate why JMAP significantly enhances user experience.
+
+Although JMAP provides many significant and subtle improvements, for clarity, this blog post will provide examples specifically with initial synchronization and re-synchronization only to illustrate why JMAP is faster.
+
+### IMAP Initial Synchronization
+
+IMAP requires multiple roundtrips to achieve initial synchronization. 
+Let’s break down the steps involved:
+
+1. Establish a Connection and Log In
+	``` sql
+	C: LOGIN username password
+	S: OK LOGIN completed
+	```
+2. Select the "Inbox" Folder for Synchronization
+
+	``` sql
+	C: SELECT INBOX
+	S: * FLAGS (\Answered \Flagged \Draft \Deleted \Seen)
+	S: * OK [PERMANENTFLAGS (\Answered \Flagged \Draft \Deleted \Seen \*)] Flags permitted.
+	S: * OK [UIDVALIDITY 3857529045] UIDs valid.
+	S: * 1134 EXISTS
+	S: * 1 RECENT
+	S: * OK [UIDNEXT 4392] Predicted next UID.
+	S: * OK [HIGHESTMODSEQ 887] Highest MODSEQ value.
+	S: S: * OK [UIDVALIDITY 3857529045] UIDs valid.
+	S: SELECT completed.
+	```
+3. Fetch Headers of Emails in the "Inbox"
+	``` sql
+	C: FETCH 1:10 (ENVELOPE)
+	S: * 1 FETCH (ENVELOPE ("Tue, 1 Jan 2024 12:00:00 +0000" "Subject 1" (("Sender 1" NIL "sender1@example.com")) NIL NIL NIL NIL NIL))
+	S: * 2 FETCH (ENVELOPE ("Wed, 2 Jan 2024 12:00:00 +0000" "Subject 2" (("Sender 2" NIL "sender2@example.com")) NIL NIL NIL NIL NIL))
+	...
+	```
+
+This process is **repeated** for the other two folders (Drafts and SubFolderA), resulting in at least two requests per folder. 
+For this example with three folders, there are a minimum of **7 roundtrips**.
+
+4. Additional Network Hops: 
+	
+	Depending on the server's capabilities, there could be additional network calls. For example, clients may enable extensions by calling ENABLE on the server.
+    - UTF8=ACCEPT: This extension allows the server to accept UTF-8 in mailbox names and message headers.
+	- CONDSTORE: This extension enables the server to store information about message state changes.
+	``` sql
+	C: A001 ENABLE UTF8=ACCEPT CONDSTORE
+	S: A001 OK [CAPABILITY IMAP4rev1 ENABLE UTF8=ACCEPT CONDSTORE] ENABLED
+	```
+
+
+
+### JMAP Initial Synchronization
+
+With JMAP, the same synchronization can be achieved with fewer roundtrips due to its ability to bundle multiple operations into a single request. 
+Here's a simplified example of how this would look:
+1.  JMAP optimizes this with a single network call. Login is also part of this call because it is handled in the HTTP header.
+
+	Request:
+	``` json
+	{
+	  "methodCalls": [
+		["Mailbox/get", {"accountId": "h", "ids": ["i", "a"], "properties": ["name", "parentId", "role", "myRights", "totalEmails"]}, "78c5e0a50"],
+		["Email/query", {"accountId": "h", "calculateTotal": true, "collapseThreads": false, "filter": {"conditions": [{"inMailbox": "a"}, {"inMailbox": "b"}, {"inMailbox": "c"}, {"inMailbox": "e"}, {"inMailbox": "f"}, {"inMailbox": "g"}, {"inMailbox": "h"}, {"inMailbox": "i"}], "operator": "OR"}, "limit": 2, "position": 0, "sort": [{"isAscending": false, "property": "receivedAt"}]}, "78c5e0a51"],
+		["Email/get", {"#ids": {"name": "Email/query", "path": "/ids", "resultOf": "78c5e0a51"}, "accountId": "h", "bodyProperties": ["partId", "blobId", "size", "name", "type", "disposition", "cid", "header:Content-Type"], "properties": ["threadId", "receivedAt", "keywords", "mailboxIds", "hasAttachment", "preview"]}, "78c5e0a52"]
+	  ],
+	  "using": ["urn:ietf:params:jmap:mail"]
+	}
+
+	```
+	Response:
+	``` json
+	{
+	  "methodResponses": [
+		["Mailbox/get", {"accountId": "h", "state": "s9kqib2xlstd2eaq", "list": [{"name": "folder_123", "parentId": null, "role": null, "myRights": {"mayReadItems": true, "mayAddItems": true, "mayRemoveItems": true, "maySetSeen": true, "maySetKeywords": true, "mayCreateChild": true, "mayRename": true, "mayDelete": true, "maySubmit": true}, "totalEmails": 1, "id": "i"}, {"name": "Inbox", "parentId": null, "role": "inbox", "myRights": {"mayReadItems": true, "mayAddItems": true, "mayRemoveItems": true, "maySetSeen": true, "maySetKeywords": true, "mayCreateChild": true, "mayRename": true, "mayDelete": true, "maySubmit": true}, "totalEmails": 0, "id": "a"}], "notFound": []}, "78c5e0a50"],
+		["Email/query", {"accountId": "h", "queryState": "s9kqib2xlstd2eaq", "canCalculateChanges": true, "position": 0, "ids": ["c", "eaaaaab"], "total": 3, "limit": 2}, "78c5e0a51"],
+		["Email/get", {"accountId": "h", "state": "s9kqib2xlstd2eaq", "list": [{"threadId": "a", "receivedAt": "2024-06-20T06:37:36Z", "keywords": {}, "mailboxIds": {"i": true}, "hasAttachment": false, "preview": "message 1 body reply\n", "headers": [{"name": "Message-ID", "value": " <msg11@guid1>"}, {"name": "From", "value": " from1 <from1@server.example.int>"}, {"name": "To", "value": " zhivko@mailtemi.com"}, {"name": "Cc", "value": " user_1@mailtemi.com"}, {"name": "Subject", "value": " Re:message 1"}, {"name": "Date", "value": " Thu, 11 May 2018 10:11:45 +0000"}, {"name": "MIME-Version", "value": " 1.0"}, {"name": "In-Reply-To", "value": " <msg10@guid1>"}, {"name": "Content-Type", "value": " text/plain"}, {"name": "Content-Transfer-Encoding", "value": " quoted-printable"}], "id": "c"}, {"threadId": "b", "receivedAt": "2024-06-20T06:37:35Z", "keywords": {}, "mailboxIds": {"g": true}, "hasAttachment": false, "preview": "message 2 body\n", "headers": [{"name": "From", "value": " from2 <from2@server.example.int>"}, {"name": "To", "value": " zhivko@mailtemi.com"}, {"name": "Subject", "value": " message 2"}, {"name": "Date", "value": " Thu, 10 May 2018 18:11:45 +0000"}, {"name": "MIME-Version", "value": " 1.0"}, {"name": "Content-Type", "value": " text/plain"}, {"name": "Content-Transfer-Encoding", "value": " quoted-printable"}], "id": "eaaaaab"}], "notFound": []}, "78c5e0a52"]
+	  ],
+	  "sessionState": "3e25b2a0"
+	}
+
+	```
+In this single JMAP request, we can:
+
+- Fetch the list of folders.
+- Query the emails in the Inbox.
+- Get the details of the emails returned by the query.
+
+This reduces the number of roundtrips drastically. Instead of 7 roundtrips (as in the IMAP example), we achieve the same with just 1 roundtrip.
+
+### IMAP Re-Synchronization with CONDSTORE/QRESYNC Extensions
+IMAP, when equipped with the CONDSTORE and QRESYNC extensions, can achieve more efficient re-synchronization compared to standard IMAP.
+
+When a client reconnects to the server for re-synchronization, it can send a special IMAP command called SELECT with the CONDSTORE option. 
+This command instructs the server to enter a selected state for the specified mailbox and send any updates that have occurred since a given MODSEQ value.
+Here's how the re-synchronization process unfolds with CONDSTORE/QRESYNC extensions:
+1. Client Requests Re-Synchronization
+	``` sql
+	C: SELECT INBOX (CONDSTORE)
+	S: * FLAGS (\Answered \Flagged \Draft \Deleted \Seen)
+	S: * OK [PERMANENTFLAGS (\Answered \Flagged \Draft \Deleted \Seen \*)] Flags permitted.
+	S: * 1134 EXISTS
+	S: * 1 RECENT
+	S: * OK [UIDNEXT 4392] Predicted next UID.
+	S: * OK [HIGHESTMODSEQ 887] Highest MODSEQ value.
+	S: S: * OK [UIDVALIDITY 3857529045] UIDs valid.
+	S: SELECT completed.
+	```
+
+   Although this approach is performant, it's important to note that it's still **repeated** for each folder. Also this extensions should be turn on by calling ENABLE command (another call). With JMAP, similar re-synchronization tasks can be consolidated into a single call, further optimizing the synchronization process and reducing network overhead.
+
+2. Client Scan for Changes
+   If the server does not support CONDSTORE, the client needs to ask the server for (FLAGS UID) in chunks, working backward. If an entry in the client cache is not returned by the server, then it is treated as deleted. If FLAGS (like unread status) are different, the email state is updated accordingly.
+
+### JMAP Re-Synchronization
+
+	With JMAP, re-synchronization of folders and emails can be done in one network call by bundling several operations into a single request. This significantly reduces the number of roundtrips needed for synchronization.
+1.  Example of JMAP Re-Synchronization.
+
+    Request:
+	``` json
+		{
+		  "methodCalls": [
+			["Mailbox/changes", {"accountId": "h", "maxChanges": 2, "sinceState": "s9kqib2xlstd2eaq"}, "84bd251c14"],
+			["Mailbox/get", {"#ids": {"name": "Mailbox/changes", "path": "/updated", "resultOf": "84bd251c14"}, "accountId": "h"}, "84bd251c15"],
+			["Email/changes", {"accountId": "h", "maxChanges": 2, "sinceState": "s9kqib2xlstd2eaq"}, "84bd251c16"],
+			["Email/get", {"#ids": {"name": "Email/changes", "path": "/updated", "resultOf": "84bd251c16"}, "accountId": "h", "bodyProperties": ["partId", "blobId", "size", "name", "type", "disposition", "cid", "header:Content-Type"], "properties": ["threadId", "receivedAt", "keywords", "mailboxIds", "hasAttachment", "preview"]}, "84bd251c17"],
+			["Email/get", {"#ids": {"name": "Email/changes", "path": "/created", "resultOf": "84bd251c16"}, "accountId": "h", "bodyProperties": ["partId", "blobId", "size", "name", "type", "disposition", "cid", "header:Content-Type"], "properties": ["threadId", "receivedAt", "keywords", "mailboxIds", "hasAttachment", "preview"]}, "84bd251c18"]
+		  ],
+		  "using": ["urn:ietf:params:jmap:mail"]}
+	```
+	Response:
+	``` json
+	{
+	  "methodResponses": [
+		["Mailbox/changes", {"accountId": "h", "oldState": "s9kqib2xlstd2eaq", "newState": "su7qibhozwhdmeaq", "hasMoreChanges": false, "created": [], "updated": ["f"], "destroyed": [], "updatedProperties": ["totalEmails", "unreadEmails", "totalThreads", "unreadThreads"]}, "84bd251c14"],
+		["Mailbox/get", {"accountId": "h", "state": "su7qibhozwhdmeaq", "list": [{"id": "f", "name": "fld1", "parentId": null, "role": null, "sortOrder": 0, "isSubscribed": false, "totalEmails": 2, "unreadEmails": 2, "totalThreads": 2, "unreadThreads": 2, "myRights": {"mayReadItems": true, "mayAddItems": true, "mayRemoveItems": true, "maySetSeen": true, "maySetKeywords": true, "mayCreateChild": true, "mayRename": true, "mayDelete": true, "maySubmit": true}}], "notFound": []}, "84bd251c15"],
+		["Email/changes", {"accountId": "h", "oldState": "s9kqib2xlstd2eaq", "newState": "su7qibhozwhdmeaq", "hasMoreChanges": false, "created": ["eaaaaab"], "updated": [], "destroyed": []}, "84bd251c16"],
+		["Email/get", {"accountId": "h", "state": "su7qibhozwhdmeaq", "list": [], "notFound": []}, "84bd251c17"],
+		["Email/get", {"accountId": "h", "state": "su7qibhozwhdmeaq", "list": [{"threadId": "b", "receivedAt": "2024-06-20T06:10:31Z", "keywords": {}, "mailboxIds": {"f": true}, "hasAttachment": false, "preview": "message 1 body"}], "notFound": []}, "84bd251c18"]
+	  ],
+	  "sessionState": "3e25b2a0"}
+
+	```
+
+	In this example, the request and response illustrate how JMAP can handle mailbox and email changes in one network call. Key points include:	
+	- Bundled Calls: 
+	  Using resultOf to reference results from previous calls within the same request.
+	- State Management: 
+	Tracking oldState and newState to ensure synchronization continuity and save the latest state for future requests.
+	
+###	More Niceties of JMAP
+	Beyond its speed and efficiency in synchronization, JMAP offers several other advantages that improve overall email management and user experience:
+	1. Immutable IDs
+	JMAP assigns immutable IDs to messages, which ensures that each email has a unique and constant identifier. 
+	This feature simplifies email management and synchronization, reducing the complexity associated with changing message IDs in IMAP.
+	2. Efficient Attachment Handling
+	JMAP allows clients to upload only the attachments of an email draft separately, rather than resending the entire email content. 
+	This significantly saves network bandwidth and improves the efficiency of handling large attachments.
+	3. Built-In Push Notifications
+	JMAP includes support for push notifications within its specification, enabling real-time updates for new emails and changes. IMAP doesn't offer such functionality. 
+	So there are different proprietary APIs different for each service (for example GMail Push Notifications API).
+	4. Unified Data Access
+	JMAP can handle multiple types of data, including email, contacts, and calendars, within a single protocol. 
+	This unified approach simplifies the development of client applications and provides a consistent interface for accessing different types of data. 
+	As of writing, JMAP Contacts/Calendaring is still draft RFCs.
+
+### Conclusion
+	JMAP's ability to chain multiple operations into a single request, combined with its efficient handling of state changes, immutable IDs, and robust draft synchronization, makes it a significantly faster protocol than IMAP. 
+	By reducing the number of roundtrips required for synchronization tasks, JMAP not only speeds up the process but also improves the overall user experience with quicker and more reliable email access. 
+	Despite the current limited adoption, the future looks promising as more providers and applications embrace JMAP for its superior performance and developer-friendly design.
+	
