@@ -27,4 +27,4 @@ key_features:
       title: JMAP Calendars
       content: Calendaring is complex and a long-term goal. <br>To become a fully-featured collaboration app, we are committed to adding JMAP calendar support in the future.
 ---
-You can email us your own ideas, too!<br />
+You can email us your own ideas, too!<br /><br />
