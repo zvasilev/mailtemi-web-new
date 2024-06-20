@@ -26,5 +26,8 @@ key_features:
     - icon: "tabler:calendar"  
       title: JMAP Calendars
       content: Calendaring is complex and a long-term goal. <br>To become a fully-featured collaboration app, we are committed to adding JMAP calendar support in the future.
+    - icon: "tabler:copy"  
+      title: Move/Copy Emails Across Accounts
+      content: Move or copy emails between accounts, whether they use JMAP, IMAP, or MSGraph.
 ---
 You can email us your own ideas, too!<br /><br />
