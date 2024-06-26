@@ -11,6 +11,21 @@ draft: false
 2. ###### Monetization
     Our goal is to build a free and fast email app.
     However, features like push notifications, which require a proxy service and incur traffic costs, will require a subscription.
+	
+3. ###### Email Synchronization
+   The iOS app prioritizes downloading the emails users are most likely to read. This includes:
+   - Unread emails
+   - Non-marketing/forum emails
+   - Emails with smaller body sizes
+   This prioritization allows users to see the content they care about as quickly as possible. When a user clicks to view an email, the app refreshes and updates priorities to display the most relevant content.
+  
+4. How does resynchronization of email flags and deletions work?
+	Mailtemi keeps email flags and deletions up-to-date under specific conditions:
+   - Every 10 minutes when Mailtemi is active
+   - Manual refresh through "Pull to refresh" for an explicit update
+   Still the speed of resynchronization vary by email provider :(
+   - JMAP: Offers more efficient synchronization with dedicated methods for querying specific email state changes.
+   - IMAP: Requires multiple queries from the latest to the earliest UID in the cache, which can result in longer sync times, especially if there are large ID gaps due to copy/move operations.
 
 3. ###### How are credentials stored?
     Mailtemi follows the best practices of Apple Keychain services to ensure your credentials are stored securely. 
