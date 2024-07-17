@@ -1,0 +1,52 @@
+---
+title: Full Offline Email. The Need for a Storage Redesign
+subtitle: This is why no updates.
+image: "/images/posts/email-storage.png"
+author: Zhivko Vasilev
+date: 2024-07-14T05:00:00Z
+categories: ["News", "Tech"]
+featured: false
+draft: false
+---
+
+The past few weeks have been dedicated to a significant redesign of the mail storage system. For the iOS/IMAP app, the previous approach relied solely on the server to provide the necessary data, which was then stored as a file. Now, the storage engine has been upgraded to write emails in MIME format instead of simply storing files from the server.
+
+### Why Was This Needed?
+
+Email might seem straightforward, and at one time, it was. It remains simple if only one service, protocol, or app is used. However, complications arise when trying to save a draft email in a JMAP account and later load the draft to change the sender address to an IMAP account. What seems like a simple drop-down menu change for the sender can become a complex task.
+
+Consider an example of fetching an email structure from the Drafts folder via IMAP:
+
+```sql
+2 FETCH (
+BODYSTRUCTURE (
+("TEXT" "PLAIN" ("CHARSET" "US-ASCII" "FORMAT" "flowed") NIL NIL "7BIT" 6 1 NIL NIL NIL)
+(("TEXT" "HTML" ("CHARSET" "US-ASCII") NIL NIL "7BIT" 43 1 NIL NIL NIL) "RELATED" ("BOUNDARY" "Boundary_(ID_dNRTtNdmcWmY4BixMp4zCw)" "TYPE" "text/html") NIL NIL)
+"ALTERNATIVE" ("BOUNDARY" "Boundary_(ID_2XHPpYi9Hz929I+W+PI1dA)") NIL NIL)
+)
+```
+
+To display the HTML version, the part `2.1` needs to be fetched. A naive approach might assume that if there is an "ALTERNATIVE" type, plain text is `1.1` and HTML is `1.2`. However, subtle differences like the presence of "RELATED" parts can change the MIME part IDs. In this case, without any related attachments, the HTML MIME part suddenly becomes `2.1`.
+
+### What Happens in the Background?
+
+- **IMAP**: Fetches parts by node IDs.
+- **JMAP/MSGraph**: Both protocols offer fetching MIME parts by blob IDs. 
+   
+This works fine if syncing with only one service via one protocol. However, there are subtle differences. For example, IMAP uploads a full MIME (quoted-printable/base64 encoding), while JMAP uses more efficient binary encoding.
+
+Also, JMAP is a better protocol serving both MIME node and blob IDs, which makes conversion easier. 
+In contrast, MSGraph serves only blob ID. So in order to copy/move in IMAP requires fetching the entire message.
+
+### The Redesigned Storage Engine
+
+To address these issues, the storage engine has been redesigned to keep all emails in MIME format. This change simplifies several tasks:
+
+1. **Copy/Move Emails Between Different Accounts**: Moving or copying emails between different accounts becomes more straightforward.
+2. **Archiving Emails**: Storing emails in formats like MBOX or other archival formats is now easier.
+3. **MacOS** This is part of migrating storage to be a support fully offline email client. This would help instead of relying on email protocols for search, this will enable local search.
+
+### Conclusion
+
+The redesigned storage system ensures a seamless experience when handling drafts across different email protocols. 
+By storing emails in MIME format, drafts and attachments can be efficiently managed, regardless of the service or protocol used. This enhancement not only streamlines the user experience but also ensures compatibility and efficiency in email management.
