@@ -17,7 +17,7 @@
     "@astrojs/react": "^3.0.9",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.10.1",
+    "astro": "^4.12.3",
     "astro-embed": "^0.7.2",
     "astro-icon": "^1.1.0",
     "astro-auto-import": "^0.4.2",
