@@ -4,29 +4,53 @@ date: "2024-06-14"
 description: ""
 draft: false
 ---
-<Changelog date="v3.1.24 (May 14,2024)">
+<Changelog date="v3.1.27 (Sep 4,2024)">
+<Badge type="added">added</Badge>
+
+- Enhanced Account Setup via JMAP: Setting up accounts through JMAP has been improved, offering smoother configuration.
+
+- Support for Partial URLs on Self-Hosted Servers: The app now supports self-hosted servers that provide only partial URLs. In these cases, the URL is automatically prepended with the JMAP `./well-known` DNS SRV record for accurate configuration.
+
+- Custom 'From' Field Editing: Users can now edit the 'From' field using a literal address format like `*@my-domain.com` for JMAP catch-all send identities, allowing for more flexible email management.
+
+- Improved Draft Email Handling: Draft emails now utilize blob IDs instead of fetching the entire email content, optimizing performance and data usage.
+
+- On-Demand Folder Creation for Standalone Servers: For standalone servers like Stalwart and Cyrus IMAP, which do not come with predefined folders, the app now automatically creates necessary folders like "Draft" and "Sent" when sending emails.
+
+- Fallback Email Address for Invalid Send Identities: If a Send Identity lacks a valid email address, the app will automatically use the email address from the setup account, ensuring seamless email delivery.
+
 <Badge type="changed">changed</Badge>
 
-- Improved JMAP setup process when OAuth token is used instead of App Password.
+- Avatar Refresh Handling: When refreshing avatars, if a temporary error (such as a timeout) occurs, the app now retains the current avatar icons instead of stripping them.
 
+- Enhanced UI Error Reporting: Improved the accuracy and clarity of error messages throughout the app, making it easier for users to identify and resolve issues.
+
+</Changelog>
+<Changelog date="v3.1.24 (May 14,2024)">
 <Badge type="added">added</Badge>
 
 - Load/Search more emails from the server.
 
 This is the start of dummy description text. You can change it whenever you want. This is the start of dummy description text. You can change it whenever you want.
+
+<Badge type="changed">changed</Badge>
+
+- Improved JMAP setup process when OAuth token is used instead of App Password.
+
 </Changelog>
 
 <Changelog date="v3.1.21 (Mar 25,2024)">
+<Badge type="added">added</Badge>
+
+- Customize email signatures and send identities for accounts using JMAP protocol.
+- Select between different send identities while composing emails.
+
+
 <Badge type="changed">changed</Badge>
 
 - Access identity management directly from the compose screen.
 - Process transactions.
 - Enhanced UI for better navigation and usability.
-
-<Badge type="added">added</Badge>
-
-- Customize email signatures and send identities for accounts using JMAP protocol.
-- Select between different send identities while composing emails.
 
 </Changelog>
 
