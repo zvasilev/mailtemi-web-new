@@ -7,9 +7,11 @@ draft: false
 <Changelog date="v3.1.30 (Oct 9, 2024)">
 <Badge type="added">added</Badge>
 
-- Secure Authentication via OpenID
+**Secure Authentication via OpenID**  
+Mailtemi now supports OpenID Connect for secure authentication. Your password remains private between you and your mail server, while the app securely receives only the necessary security tokens.
 
-  Mailtemi now supports OpenID Connect Dynamic Client Registration and OpenID Connect Discovery, allowing the app to authenticate securely without sending your password to the server.
+- **OpenID Connect Discovery** – Automatically discover relevant OIDC endpoints via the `/.well-known/openid-configuration` endpoint.
+- **OpenID Dynamic Client Registration** – Automatically authenticate with the server via OAuth with the OIDC provider, without requiring explicit email app-to-email server setup.
 
 <Badge type="changed">fixed</Badge>
 - Fixed an issue where tapping "Move to folder" would cause the application to crash.
