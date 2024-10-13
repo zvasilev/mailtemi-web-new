@@ -1,0 +1,33 @@
+---
+title:  Catch-all/ Wildcard aliases/ Send Identities of standalone JMAP servers.
+subtitle: This is why no updates.
+image: "/images/posts/email-storage.png"
+author: Zhivko Vasilev
+date: 2024-09-10T05:00:00Z
+categories: ["News", "Tech"]
+featured: false
+draft: true
+---
+
+
+
+
+Still there is not uniform support across JMAP servers.
+So the app just rely solely on the server to handle send workflow.
+To avoid confucssion error handling was extended to preserve server error description and presend it in the UI.
+
+For example 
+1. stalw.art server allow any Send Identity(email alias) to be set.
+This doesn't guarantee email will be successful be send by this alias. But the server returns correct error when send failed.
+
+2. Cyrus IMAP server.
+ - As standalone server do not support update part of the API.
+   Also if the users are not created with email adresses the API do not return anythisng.
+   So in this case the only possible sollution is to populate email address from setup workflow.
+ - As FastMail service is very different story.
+   
+
+
+
+ 
+

@@ -1,0 +1,55 @@
+---
+title:  OAuth. Can it work for selfhosted services?
+subtitle: This is why no updates.
+image: "/images/posts/oauth.png"
+author: Zhivko Vasilev
+date: 2024-09-10T05:00:00Z
+categories: ["Security"]
+featured: false
+draft: true
+---
+
+Why is better for both end users and organization/services.
+
+
+**OAuth: Why It’s Better for Both End Users and Organizations**
+
+### Short Explanation
+
+For both users and organizations, OAuth offers a more secure and seamless way to handle authentication. Here’s why:
+
+- **For End Users**: Imagine using an app like Mailtemi, where instead of entering your password into random apps, OAuth allows you to log in by passing a secure token to the app. This token gives the app access only to specific data (like your emails) without exposing other sensitive resources.
+  
+- **For Organizations/Services**: Many services provide multiple tools—email, support, internal systems—and managing access to all these resources through one centralized authentication system makes life easier for both users and administrators. It's more secure, user-friendly, and scalable.
+
+### How It Works: A Simplified Explanation Using an Email App/Server
+
+Here’s a quick overview of how OAuth works with an email app like Mailtemi:
+
+1. **User Authentication**: When the user taps to log in, the app sends a DNS request looking for a TXT record at `/.well-known/openid-configuration`. This record tells the app where the authentication server is.
+
+2. **Authentication Form**: The app then redirects the user to an external browser where the actual login happens. This way, the app doesn’t handle or store sensitive login credentials—only the authentication server does.
+
+3. **Tokens**: Once logged in, the app receives access and refresh tokens from the server, but only for the specified service (like email). The user’s password never touches the app, ensuring enhanced security and privacy.
+
+### Shortcomings
+
+While OAuth is great, it does have some drawbacks:
+
+- **Designed for Big Players**: OAuth’s development was heavily influenced by large organizations, so it’s not perfectly suited for every situation.
+
+- **Legal Contracts**: Every app needs to sign a contract or undergo certification with each service provider. It’s kind of like how, in the old days, AOL or CompuServe controlled the way you accessed services online—unlike today’s web browsers, which simply trust certificates to validate connections.
+
+- **Client IDs**: OAuth requires a unique client ID for each app, which involves a manual exchange between the app and service provider. This works well for big platforms but doesn’t fit the decentralized nature of protocols like email, where manual interventions should be minimized.
+
+### The Solution
+
+**OpenID Connect Dynamic Client Registration**
+
+For a truly decentralized and seamless experience, dynamic client registration can help:
+
+- Apps like Mailtemi can automatically register with the OIDC provider without needing manual approval or admin involvement.
+- The only requirement is to set up a proper DNS TXT value for each domain, allowing OpenID Connect Discovery to work automatically.
+
+This eliminates much of the manual process, and the app can securely access email without extra steps from the admin. The process could even be fully automated, making it more efficient for everyone involved.
+
