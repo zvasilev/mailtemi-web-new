@@ -1,0 +1,34 @@
+---
+title:  Email account auto config
+subtitle: How the app find server settings
+image: "/images/posts/email-storage.png"
+author: Zhivko Vasilev
+date: 2024-09-10T05:00:00Z
+categories: ["Config", "Tech"]
+featured: false
+draft: true
+---
+
+
+
+Mailtemi introduce major improvement to automatically configure most mail accounts. 
+Also the setup process is simplified for both auto config and manually configuration.
+The blog post try explain how better to configure your email server/or dns to be able automatically resolve email config.
+
+Because email autoconfig wasn't standartised(Have effors to be standartised), there are several ways to do it.
+These includes:
+1.  DNS SRV records to point to JMAP/IMAP/SMTP/etc endpoints.
+2. HTTP server endpoints for serving https://server.url/.well-known endpoinds. 
+   They could be authentication. The email OAuth service provider (could be external). Or dynamic client registration endpoint.
+   Those auth endpoinds point to services they can be used. Like an email JMAP endpoint.
+3. Look up DNS MX record of server.url does it point to well known service provider (fastmail/gmail/outlook). 
+4. Check for exsistance of autocofig file hosted via HTTP.
+   - https://mail.host.com/mail/config-v1.1.xml
+
+
+
+
+
+
+ 
+
