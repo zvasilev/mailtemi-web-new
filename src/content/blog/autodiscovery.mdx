@@ -54,6 +54,16 @@ To ensure a seamless experience for your users, follow these best practices:
 
 By implementing these measures, you’ll make life easier for your users and ensure compatibility with Mailtemi and other email clients.
 
+## Dynamic Client Authentication!
+
+There is a server offering dynamic client authentication called stalw.art, and Mailtemi is fully interoperable with it. This authentication method provides several advantages:
+
+No User Passwords: The email client does not store or manage the user’s main password. Instead, it receives a token through OIDC, limiting access to only what is authorized by the server. This ensures no unauthorized API access to other resources.
+
+Two-Factor Authentication: Dynamic client authentication supports two-factor authentication via the mail server’s OIDC provider, adding an extra layer of security.
+
+Enhanced Infrastructure Hosting: Unlike the status quo, which restricts secure email hosting to a few providers, dynamic client authentication enables you to host a fully secure email infrastructure.
+
 ## Why Mailtemi Stands Out
 
 Mailtemi combines speed, security, and user-centric design to deliver a superior email setup experience. By leveraging modern protocols like JMAP and robust authentication methods such as OAuth and API keys, it ensures that your email is not only easy to configure but also secure and reliable.
