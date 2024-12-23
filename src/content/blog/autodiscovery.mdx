@@ -49,7 +49,7 @@ If JMAP isn’t available, Mailtemi switches to discovering IMAP/SMTP settings. 
 - **DNS SRV Records:** It looks for records `_imaps._tcp.<domain>` and `_submission._tcp.<domain>` to locate IMAP and SMTP servers.
 - **HTTP Auto-Configuration File:** If no DNS SRV records are found, Mailtemi tries HTTP-based discovery. It queries URLs such as:
   - `https://autoconfig.<domain>/mail/config-v1.1.xml?emailaddress=<email>`
-  - `https://<domain>/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=<email>`
+  - `https://<domain>/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=<email>`  
     From the server response, the email client retrieves IMAP/SMTP settings.
 - **Mozilla ISP Database (ISPDB):** As a backup, Mailtemi queries the Mozilla ISP Database at `https://autoconfig.thunderbird.net/v1.1/<domain>` for known server settings. You can learn more and register your server settings by following [this guide](https://www.bucksch.org/1/projects/thunderbird/autoconfiguration/).
 - **MX Record Lookup:** If other methods fail, Mailtemi performs an MX record lookup to identify the mail server. For well-known providers like Fastmail or Outlook, pre-configured settings are applied automatically.
@@ -57,11 +57,11 @@ If JMAP isn’t available, Mailtemi switches to discovering IMAP/SMTP settings. 
 
 ### 4. **Dynamic Client Authentication and Manual Configuration**
 
-Mailtemi is interoperable with the stalw\.art JMAP server and supports dynamic client authentication as described in [this article](https://stalw.art/blog/openid-connect/). This approach offers several key advantages:
+Mailtemi is interoperable with the stalw.art JMAP server and supports dynamic client authentication as described in [this article](https://stalw.art/blog/openid-connect/). This approach offers several key advantages:
 
-- **Secure Token-Based Access:** Instead of storing user passwords, Mailtemi obtains a token through OIDC, which limits access to only authorized resources and enhances security. Additionally, Mailtemi securely stores user username/passwords/tokens/dynamic client\_id using Apple’s Secure Keychain API. [Learn more about Secure Keychain API](https://developer.apple.com/documentation/security/keychain-services).
+- **Secure Token-Based Access:** Instead of storing user passwords, Mailtemi obtains a token through OIDC, which limits access to only authorized resources and enhances security. Additionally, Mailtemi securely stores user credentials and tokens using Apple’s Secure Keychain API. [Learn more about Secure Keychain API](https://developer.apple.com/documentation/security/keychain-services).
 - **Two-Factor Authentication:** By leveraging the mail server’s OIDC provider, Mailtemi ensures an added layer of protection.
-- **Empowered Hosting:** Dynamic client authentication supports hosting secure email infrastructure beyond the few large providers, making it possible to maintain full control over your setup.
+- **Security for Self-Hosting:** Dynamic client authentication bridges the gap between small-scale self-hosted email servers and the level of security provided by larger providers. This empowers smaller providers to offer a robust and secure email infrastructure.
 
 For other configurations, Mailtemi displays the connection settings (JMAP/IMAP) to finalize the setup. If automatic methods fail, a manual setup option is available to enter server details.
 
