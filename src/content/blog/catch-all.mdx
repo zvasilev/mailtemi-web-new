@@ -11,22 +11,42 @@ draft: true
 
 
 
+**Wildcard Email Sending in Mailtemi**
 
-Still there is not uniform support across JMAP servers.
-So the app just rely solely on the server to handle send workflow.
-To avoid confucssion error handling was extended to preserve server error description and presend it in the UI.
+Finding an email app that meets specific needs can sometimes be tricky, especially for those using custom domains and wildcard email addresses. Mailtemi supports wildcard email sending using the `*@my-domain.com` format, a feature designed to make email management more convenient for JMAP accounts.
 
-For example 
-1. stalw.art server allow any Send Identity(email alias) to be set.
-This doesn't guarantee email will be successful be send by this alias. But the server returns correct error when send failed.
+### Why Wildcard Sending is Useful
 
-2. Cyrus IMAP server.
- - As standalone server do not support update part of the API.
-   Also if the users are not created with email adresses the API do not return anythisng.
-   So in this case the only possible sollution is to populate email address from setup workflow.
- - As FastMail service is very different story.
-   
+Wildcard email addresses, represented as `*@my-domain.com`, allow users to send and receive emails from any address within their domain. This can be especially helpful for:
 
+- **Protecting privacy** by using unique email addresses for different services.
+- **Simplifying email management** by consolidating multiple sender identities under one domain.
+- **Adapting to specific needs** of users managing custom domains.
+
+This functionality relies on the JMAP protocol’s Identity API, which makes such dynamic email address management possible.
+
+### Custom 'From' Field Editing
+
+Mailtemi allows users to:
+
+- **Edit the 'From' field** to input a wildcard address like `*@my-domain.com`.
+- **Send emails from any address** within their custom domain using JMAP accounts.
+
+This feature directly addresses a gap in other email clients, offering flexibility without requiring users to leave the app.
+
+### Inspired by User Feedback
+
+This functionality was shaped by feedback from Mailtemi users. One of them, shared his challenge of finding an iOS app that could support wildcard sending profiles. His input helped refine the feature to address real-world needs effectively.
+
+### First on Android
+
+Interestingly, this feature has been developed first for Android, marking a shift in Mailtemi’s usual iOS-first development approach. The Android version is still in progress but will soon bring the same flexible wildcard sending capabilities to a broader audience.
+
+### Considering Improvements with JMAP Contacts and Masked Email
+
+The potential for wildcard email sending doesn’t stop here. Future updates will consider integrating JMAP Contacts, enabling more streamlined identity management. JMAP Contacts are still a draft RFC, but once finalized, the app will adopt them as soon as possible due to the improved send workflow they offer. 
+
+For Fastmail users, this could also tie in with **Masked Email**, a feature that allows creating unique, disposable email addresses for additional privacy and security. Combining wildcard sending with Masked Email will make managing custom domains more intuitive and flexible.
 
 
  
