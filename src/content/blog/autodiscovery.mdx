@@ -1,5 +1,5 @@
 ---
-title: Effortless Email Configuration with Mailtemi
+title: Automatic Email Configuration
 subtitle: Setting up your email account shouldn’t feel like solving a Rubik’s cube.
 image: "/images/posts/email_configuration.png"
 author: Zhivko Vasilev
@@ -8,8 +8,6 @@ categories: ["Config", "Tech"]
 featured: false
 draft: true
 ---
-
-# Effortless Email Configuration with Mailtemi
 
 Setting up your email account shouldn’t be a hassle. Mailtemi simplifies the process, making it as easy as entering your email address. Whether you’re an experienced user or just starting out, Mailtemi’s approach to automatic and manual configuration is designed to save you time and effort.
 
@@ -39,8 +37,26 @@ Mailtemi uses a dual-flow approach to email configuration, focusing on both prot
 
 Mailtemi starts by looking for JMAP support. The steps are:
 
-- **Dynamic Client Registration:** Mailtemi checks if your email provider supports JMAP with OpenID Connect (OIDC) using Dynamic Client Registration. This method adheres to ongoing standardization efforts, as detailed in [this draft](https://datatracker.ietf.org/doc/draft-jenkins-oauth-public/). If successful, it retrieves the JMAP service endpoint and proceeds with configuration.
-- **DNS SRV Record:** If Dynamic Client Registration fails, Mailtemi searches for a DNS SRV record (e.g., `jmap._tcp.example.com`) to locate the JMAP service. JMAP’s standardized approach ensures accurate results without the need for fuzzy logic.
+- **DNS SRV Record:** Mailtemi begins by searching for a DNS SRV record (e.g., `jmap._tcp.example.com`) to locate the JMAP service.
+- **OIDC Auto-Discovery:** If the SRV record points to a valid endpoint (e.g., `https://mailtemi.eu/.well-known/openid-configuration`), Mailtemi checks explicitly for the following:
+  - `claims_supported` must include "email."
+  - `scopes_supported` must include "openid" and "offline_access."
+  - The presence of `issuer`, `authorization_endpoint`, and `token_endpoint` is required.
+
+  Example OpenID configuration response:
+
+  ```json
+  {
+    "issuer": "https://mailtemi.eu",
+    "authorization_endpoint": "https://mailtemi.eu/oauth2/auth",
+    "token_endpoint": "https://mailtemi.eu/oauth2/token",
+    "userinfo_endpoint": "https://mailtemi.eu/oauth2/userinfo",
+    "scopes_supported": ["openid", "email", "offline_access"],
+    "claims_supported": ["email"]
+  }
+  ```
+
+- **Dynamic Client Registration:** If all criteria are met, Mailtemi uses the JMAP service endpoint to proceed with configuration.
 
 ### 3. **Fallback to IMAP/SMTP**
 
@@ -57,7 +73,7 @@ If JMAP isn’t available, Mailtemi switches to discovering IMAP/SMTP settings. 
 
 ### 4. **Dynamic Client Authentication and Manual Configuration**
 
-Mailtemi is interoperable with the stalw.art JMAP server and supports dynamic client authentication as described in [this article](https://stalw.art/blog/openid-connect/). This approach offers several key advantages:
+Mailtemi is interoperable with the [Stalw.art](https://stalw.art) JMAP server and supports dynamic client authentication as described in [this article](https://stalw.art/blog/openid-connect/). This approach offers several key advantages:
 
 - **Secure Token-Based Access:** Instead of storing user passwords, Mailtemi obtains a token through OIDC, which limits access to only authorized resources and enhances security. Additionally, Mailtemi securely stores user credentials and tokens using Apple’s Secure Keychain API. [Learn more about Secure Keychain API](https://developer.apple.com/documentation/security/keychain-services).
 - **Two-Factor Authentication:** By leveraging the mail server’s OIDC provider, Mailtemi ensures an added layer of protection.
@@ -76,8 +92,8 @@ To ensure a seamless experience for your users, follow these practices:
 
 By implementing these measures, you’ll make life easier for your users and ensure compatibility with Mailtemi and other email clients.
 
-## Why Mailtemi Stands Out
+## Why Mailtemi Matters
 
-As a solo developer, my goal with Mailtemi is to provide a tool that balances speed, security, and simplicity. By leveraging modern protocols like JMAP and robust authentication methods such as OAuth and API keys, Mailtemi aims to make email configuration straightforward and secure.
+As a solo developer, my aim with Mailtemi is to offer a solution that combines simplicity, security, and reliability. By leveraging modern protocols like JMAP and robust authentication methods such as OAuth, Mailtemi strives to make email configuration accessible and secure.
 
-I’ve worked hard to ensure that Mailtemi makes email setup less frustrating and more accessible. If you’re looking for a simple and reliable way to manage your email configuration, give Mailtemi a try—it just might be the solution you’ve been looking for!
+My hope is that Mailtemi can make email setup less of a chore and more of a seamless experience. If you’re looking for a straightforward way to manage your email configuration, I’d love for you to give Mailtemi a try. It might just be what you’ve been searching for!
