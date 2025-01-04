@@ -26,12 +26,12 @@ Mailtemi uses a dual-flow approach to email configuration, focusing on both prot
 
 #### **Protocol Discovery**
 
-1. **JMAP First:** Mailtemi checks for JMAP (JSON Meta Application Protocol) support. This cutting-edge protocol simplifies email synchronization and configuration.
+1. **JMAP First:** Mailtemi checks for JMAP (JSON Meta Application Protocol) support. This new protocol simplifies email synchronization and configuration.
 2. **Parallel Searches for IMAP/SMTP Settings:** Mailtemi simultaneously attempts discovery via:
    - DNS SRV records for both IMAP and SMTP
    - HTTP auto-configuration files
    - Mozilla Thunderbird ISP Database (ISPDB)
-   - MX DNS SRV records
+   - MX DNS record, to obtain real domain name
 3. **Fuzzy Search:** If none of the above methods yield definite settings, Mailtemi employs fuzzy logic to guess server configurations based on common patterns.
 
 ### 2. **JMAP First: The Modern Protocol**
