@@ -38,7 +38,7 @@ Mailtemi uses a dual-flow approach to email configuration, focusing on both prot
 
 Mailtemi starts by looking for JMAP support. The steps are:
 
-- **DNS SRV Record:** Mailtemi begins by searching for a DNS SRV record (e.g., `jmap._tcp.example.com`) to locate the JMAP service.
+- **DNS SRV Record:** Mailtemi begins by searching for a DNS SRV record (e.g., `jmap._tcp.mailtemi.eu`) to locate the JMAP service.
 - **OIDC Auto-Discovery:** If the SRV record points to a valid endpoint (e.g., `https://mailtemi.eu/.well-known/openid-configuration`), Mailtemi checks explicitly for the following:
   - `claims_supported` must include "email."
   - `scopes_supported` must include "openid" and "offline_access."
