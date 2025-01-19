@@ -41,32 +41,32 @@ service:
 ##key features
 key_features:
   title: "The Highlighting Part Of Our Solution"
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas Werat viverra id et aliquet. vulputate egestas sollicitudin.
+  description: Mailtemi brings a suite of thoughtful features to simplify and enhance your email experience.
   feature_list:
     - icon: "tabler:inbox"  
       title: Unified Inbox
-      content: Regardless of server support for folders or labels, Mailtemi synchronizes all mail items and presents them in a unified view.<br><br> Folders or labels are displayed as label tags, ensuring seamless organization and access to all your emails in one place.
+      content: Synchronize all emails, regardless of folders or labels, into a single view with seamless organization using label tags.
     - icon: "tabler:users"  
       title: Contacts
-      content: Synchronization of your contacts using supported protocols like CardDAV, MS Graph Users, Google People, and soon JMAP Contacts.<br><br> Stay connected and organized with all your contacts in one place.
+      content: Sync contacts via CardDAV, MS Graph Users, Google People, and soon JMAP Contacts, keeping your address book unified.
     - icon: "tabler:markdown"  
       title: Markdown
-      content: In addition to being a Markdown editor like others, Mailtemi offers a unique feature to convert HTML-only emails into Markdown. This allows for viewing emails in plain format, ensuring the most secure way to read emails.<br><br> This feature can be opted into from the settings for enhanced privacy and readability.
+      content: Convert HTML emails to Markdown for secure, plain-format reading, or use the built-in Markdown editor for clarity and privacy.
     - icon: "tabler:shield"  
       title: Tracking Prevention
-      content: Mailtemi empowers you to manage remotely loaded images with our automatic detection and filtering system.<br><br> Choose to display images automatically, require approval for each instance, or manually approve them. This feature helps safeguard your privacy by preventing unwanted tracking through email images.
+      content: Take control of remote image loading with customizable approval settings, protecting your privacy from tracking pixels.
     - icon: "tabler:spy-off"  
       title: Privacy
-      content: We prioritize your privacy by abstaining from collecting or analyzing any of your data.<br><br> All actions are executed exclusively on your device, ensuring that your information remains secure and confidential.
+      content: All operations happen on your device. Your data is never collected or analyzed, ensuring complete confidentiality.
     - icon: "tabler:palette"  
       title: Account Colors
-      content: Assign a unique color to each email account, making it easy to identify messages and labels associated with each one at a glance.
+      content: Assign colors to email accounts for quick visual identification of messages and labels.
     - icon: "tabler:send"  
       title: Send Identities
-      content: Compose ameil from any JMAP Alias(Send Identities) configured in your account, and send through that alias. <br><br>Identities are helpful if you want to send mail from different addresses or names without creating multiple users.
+      content: Use JMAP aliases to send emails from different addresses without the hassle of managing multiple accounts.
     - icon: "tabler:user-circle"  
       title: Avatars and Brand Identities
-      content: Fetch contact info, avatars and brand images.<br><br> Possible by use a large API protocols support such as CardDAV, Google People API, MSGraph Users, iPhone Contacts, Gravatar, BIMI and more for a seamless and enhanced email sender context.<br><br> Syncs and adds context to your emails - avatars and other email addresses.       
+      content: Enhance email context with synced contact avatars, brand images, and additional sender details via robust protocol support.
 
 #testimonial
 testimonial:

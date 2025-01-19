@@ -1,0 +1,100 @@
+---
+title: The State of JMAP protocol
+subtitle: Setting up your email account shouldn’t feel like solving a Rubik’s cube.
+image: "/images/posts/email_configuration.png"
+author: Zhivko Vasilev
+date: 2024-12-29T05:00:00Z
+categories: ["Config", "Tech"]
+featured: false
+draft: true
+---
+
+
+Setting up your email account shouldn’t be a hassle. Mailtemi simplifies the process, making it as easy as entering your email address. Whether you’re an experienced user or just starting out, Mailtemi’s approach to automatic and manual configuration is designed to save you time and effort.
+
+## Automatic Configuration: How It Works
+
+Mailtemi prioritizes speed and security by using modern protocols and authentication methods. Here’s how Mailtemi handles automatic email configuration:
+
+### 1. **Email Protocol and Authentication Discovery**
+
+Mailtemi uses a dual-flow approach to email configuration, focusing on both protocol discovery and authentication methods:
+
+#### **Authentication Methods**
+
+- **OAuth Preference:** Mailtemi prefers OAuth for its enhanced security. This ensures the app does not store user passwords but instead uses tokens limited to authorized services (e.g., email, contacts). Mailtemi supports the Microsoft MSGraph protocol exclusively via OAuth.
+
+#### **Protocol Discovery**
+
+1. **JMAP First:** Mailtemi checks for JMAP (JSON Meta Application Protocol) support. This new protocol simplifies email synchronization and configuration.
+2. **Parallel Searches for IMAP/SMTP Settings:** Mailtemi simultaneously attempts discovery via:
+   - DNS SRV records for both IMAP and SMTP
+   - HTTP auto-configuration files
+   - Mozilla Thunderbird ISP Database (ISPDB)
+   - MX DNS record, to obtain real domain name
+3. **Fuzzy Search:** If none of the above methods yield definite settings, Mailtemi employs fuzzy logic to guess server configurations based on common patterns.
+
+### 2. **JMAP First: The Modern Protocol**
+
+Mailtemi starts by looking for JMAP support. The steps are:
+
+- **DNS SRV Record:** Mailtemi begins by searching for a DNS SRV record (e.g., `jmap._tcp.mailtemi.eu`) to locate the JMAP service.
+- **OIDC Auto-Discovery:** If the SRV record points to a valid endpoint (e.g., `https://mailtemi.eu/.well-known/openid-configuration`), Mailtemi checks explicitly for the following:
+  - `claims_supported` must include "email."
+  - `scopes_supported` must include "openid" and "offline_access."
+  - The presence of `issuer`, `authorization_endpoint`, and `token_endpoint` is required.
+
+  Example OpenID configuration response:
+
+  ```json
+  {
+    "issuer": "https://mailtemi.eu",
+    "authorization_endpoint": "https://mailtemi.eu/oauth2/auth",
+    "token_endpoint": "https://mailtemi.eu/oauth2/token",
+    "userinfo_endpoint": "https://mailtemi.eu/oauth2/userinfo",
+    "scopes_supported": ["openid", "email", "offline_access"],
+    "claims_supported": ["email"]
+  }
+  ```
+
+- **Dynamic Client Registration:** If all criteria are met, Mailtemi uses the JMAP service endpoint to proceed with configuration.
+
+### 3. **Fallback to IMAP/SMTP**
+
+If JMAP isn’t available, Mailtemi switches to discovering IMAP/SMTP settings. Multiple methods are employed in parallel to save time:
+
+- **DNS SRV Records:** It looks for records `_imaps._tcp.<domain>` and `_submission._tcp.<domain>` to locate IMAP and SMTP servers.
+- **HTTP Auto-Configuration File:** If no DNS SRV records are found, Mailtemi tries HTTP-based discovery. It queries URLs such as:
+  - `https://autoconfig.<domain>/mail/config-v1.1.xml?emailaddress=<email>`
+  - `https://<domain>/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=<email>`  
+    From the server response, the email client retrieves IMAP/SMTP settings.
+- **Mozilla ISP Database (ISPDB):** As a backup, Mailtemi queries the Mozilla ISP Database at `https://autoconfig.thunderbird.net/v1.1/<domain>` for known server settings. You can learn more and register your server settings by following [this guide](https://www.bucksch.org/1/projects/thunderbird/autoconfiguration/).
+- **MX Record Lookup:** If other methods fail, Mailtemi performs an MX record lookup to identify the mail server. For well-known providers like Fastmail or Outlook, pre-configured settings are applied automatically.
+- **Fuzzy Logic:** As a last resort, Mailtemi uses heuristic techniques to guess server settings based on common patterns. This is slower and less reliable but can succeed when all else fails.
+
+### 4. **Dynamic Client Authentication and Manual Configuration**
+
+Mailtemi is interoperable with the [Stalw.art](https://stalw.art) JMAP server and supports dynamic client authentication as described in [this article](https://stalw.art/blog/openid-connect/). This approach offers several key advantages:
+
+- **Secure Token-Based Access:** Instead of storing user passwords, Mailtemi obtains a token through OIDC, which limits access to only authorized resources and enhances security. Additionally, Mailtemi securely stores user credentials and tokens using Apple’s Secure Keychain API. [Learn more about Secure Keychain API](https://developer.apple.com/documentation/security/keychain-services).
+- **Two-Factor Authentication:** By leveraging the mail server’s OIDC provider, Mailtemi ensures an added layer of protection.
+- **Security for Self-Hosting:** Dynamic client authentication bridges the gap between small-scale self-hosted email servers and the level of security provided by larger providers. This empowers smaller providers to offer a robust and secure email infrastructure.
+
+For other configurations, Mailtemi displays the connection settings (JMAP/IMAP) to finalize the setup. If automatic methods fail, a manual setup option is available to enter server details.
+
+## Setting Up Your Email Server for Auto-Configuration
+
+To ensure a seamless experience for your users, follow these practices:
+
+1. **Enable JMAP Support:** JMAP simplifies synchronization and configuration. Implement OIDC with Dynamic Client Registration to make setup effortless for your users.
+2. **Publish DNS SRV Records:** Include records for JMAP, IMAP, and SMTP to guide applications to your servers.
+3. **Provide Auto-Configuration Files:** Host configuration files at standardized URLs (e.g., `.well-known/autoconfig`) to support HTTP-based discovery.
+4. **Register with ISP Databases:** Ensure your server settings are listed in public databases like Mozilla’s ISPDB. You can learn more and register your server settings by following [this guide](https://www.bucksch.org/1/projects/thunderbird/autoconfiguration/).
+
+By implementing these measures, you’ll make life easier for your users and ensure compatibility with Mailtemi and other email clients.
+
+## Why Mailtemi Matters
+
+As a solo developer, my aim with Mailtemi is to offer a solution that combines simplicity, security, and reliability. By leveraging modern protocols like JMAP and robust authentication methods such as OAuth, Mailtemi strives to make email configuration accessible and secure.
+
+My hope is that Mailtemi can make email setup less of a chore and more of a seamless experience. If you’re looking for a straightforward way to manage your email configuration, I’d love for you to give Mailtemi a try. It might just be what you’ve been searching for!
