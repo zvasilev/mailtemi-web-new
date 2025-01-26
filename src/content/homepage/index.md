@@ -34,6 +34,9 @@ service:
         - JMAP (JSON Meta Application Protocol)
         - IMAP (Internet Message Access Protocol)
         - MSGraph (Microsoft Graph)
+    - title: Android (Beta)
+      description: The UI is not as good as it needs to be, but the functionality for setup, listing, viewing, and composing emails works. <br>Need to get feedback after a year of cooking it. See the blog post about it __*[Mailtemi Beta (Android)](blog/mailtemi-beta)*__
+      image: "/images/posts/android-beta.webp"
 
 
     
