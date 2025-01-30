@@ -21,7 +21,7 @@ To install the app, you need to enable your phone to allow installations from un
 
 Next, download and install the beta:
 
-1. [Download the beta ZIP file](https://user.fm/files/v2-00c0931b328f936b957afd06dfe77d92/mailtemi-beta.zip) and unzip it.
+1. [Download the beta ZIP file](https://user.fm/files/v2-afd69073eabc992d8319618ca4c2b53d/mailtemi-beta-0.8.2.apk) and unzip it.
 2. Locate the `mailtemi-beta-0.8.1.apk` file.
 3. Transfer it to your device and use the chosen app to install it.
 
@@ -69,10 +69,16 @@ The primary goal is to achieve feature parity with the iOS version. Missing UI f
 - Researching ways to implement push email notifications outside of Google Play services.
 
 
-## 7. Known Issues
+## 7. Fixed in last version 
 
-  Already reported by beta tests.
-- Dark mode is broken on Compose Screen.
+
+**0.8.2**  
+
+- Swipe was too sensitive—most complaints. Added extra checks to prevent accidental triggers while keeping the default UI behavior.  
+- Couldn’t select an alias in the 'From' field (JMAP accounts only).  
+- Dark mode was broken on the compose screen—now fixed.  
+- Send button didn’t work if the subject was empty. The email wasn’t sent because the warning dialog (Cancel/Send Anyway) didn’t appear—now fixed.  
+
 
 ---
 
