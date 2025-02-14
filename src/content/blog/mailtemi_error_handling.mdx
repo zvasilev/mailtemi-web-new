@@ -1,0 +1,80 @@
+---
+title: Breaking the Silence! Clearer Email Errors ⟷ Easier Troubleshooting
+subtitle: 📩 [Email Client] ⟷ [Airport Wi-Fi (requires authentication)] ⟷ 🌍 [Internet] ⟷ 🔰 [Load Balancer/Defense Proxy] ⟷ 📮 [Email Server]
+image: "/images/posts/error.webp"
+author: Zhivko Vasilev
+date: 2025-02-15T05:00:00Z
+categories: ["Config", "Tech"]
+featured: false
+draft: true
+---
+
+Two weeks ago, arriving at Brussels, I had a frustrating experience with Mailtemi. I attempted to reply to an email, only to be met with a vague error message: "No Network." The app provided a retry button, but no further context. Was it a weak Wi-Fi signal? A network switch? A captive portal blocking my connection? The lack of detail made troubleshooting unnecessarily difficult. This is somewhat expected for protocols that do not use HTTP, like IMAP/SMTP, but I knew HTTP provides more detailed informati...
+
+This experience made me realize that Mailtemi's error handling needs improvement—particularly in making error messages more informative and user-friendly.
+
+## Identifying Connection Breakpoints
+
+Email connections are not always direct—they often pass through multiple layers before reaching the email server. A common scenario looks like this:
+
+📩 **[Email Client]** ⟷ **[Airport Wi-Fi (requires authentication)]** ⟷ 🌍 **[Internet]** ⟷ 🔰 **[Load Balancer/Defense Proxy]** ⟷ 📮 **[Email Server]**
+
+There are multiple failure points in this chain. The connection might drop at the airport Wi-Fi due to captive portal restrictions, at the load balancer due to rate limiting, or even at the email server if authentication fails.
+
+By identifying where the failure occurs, Mailtemi can provide better troubleshooting hints. Instead of a generic error message, the app will indicate **which step in the chain caused the failure**—whether it’s an unauthenticated Wi-Fi connection or a proxy rejecting the request. This ensures that the issue can be addressed more efficiently rather than relying on trial and error.
+
+## The JMAP Advantage
+
+Interestingly, the email I was replying to used JMAP, which, unlike IMAP and SMTP, provides much richer error context. Instead of just returning a generic "No Network" error, JMAP can provide specific reasons for failure, such as:
+
+- **Roaming is disabled**
+- **Cellular data is restricted (e.g., due to cost restrictions)**
+- **A phone call is blocking the network**
+- **Connection Lost (NSURLErrorNetworkConnectionLost)**, meaning the connection started but didn’t complete.
+- **Captive portal detected**, indicating a Wi-Fi network that requires a login page before allowing access.
+
+These details help users understand why an email isn’t sending and, more importantly, what can be done about it.
+
+## Adding More Context with JMAP
+
+JMAP includes error responses like:
+
+- **forbiddenToSend**: A user attempts to send an email but lacks permission, possibly due to policies or security restrictions.
+- **forbiddenFrom**: The sender’s email address is not allowed, potentially due to domain restrictions or authentication policies.
+
+Instead of displaying these errors as-is, Mailtemi enhances them by providing clearer titles while preserving the original server response in details. This way, if the server provides a meaningful error, it could be clear whether it’s due to incorrect input, a restriction, or an actual error.
+
+## Email Errors in a Federated System
+
+Email is a federated system, meaning different servers and providers handle authentication and message delivery. Unlike centralized services, this often leads to inconsistent and unstructured error reporting in older protocols like IMAP and SMTP. However, JMAP allows meaningful error descriptions to be included.
+
+For example, instead of just "Invalid Credentials," JMAP can provide detailed reasons such as "The email server cannot reach the OIDC provider." These errors are preserved and surfaced, making it easier to diagnose issues.
+
+## Making Error Reporting More User-Friendly
+
+1. **Keep detailed descriptions if the protocol provides them.**
+2. **Ensure error details are preserved through the app.**
+3. **Show relevant details in the UI.**
+4. **Use smarter retry strategies.**
+5. **Display account-specific errors.**
+6. **Allow users to access detailed logs.**
+7. **Clarify where the error originates.**
+
+## The Limitation: JMAP vs. IMAP/SMTP
+
+These improvements primarily benefit JMAP users, as it provides structured error responses. IMAP and SMTP still return generic error codes, making it harder to extract meaningful insights.
+
+## Troubleshooting
+
+Instead of requiring debug logs, Mailtemi now includes more context in error messages:
+
+- Expand the error message using the "Details" option.
+- Take a screenshot.
+- Send it to [support@mailtemi.com](mailto:support@mailtemi.com) for assistance.
+
+## Final Thoughts
+
+Improving error messages isn’t just about polish—it’s about reducing frustration. Expect Mailtemi to start offering clearer, more actionable error messages soon.
+
+If you've encountered similar frustrations with email error reporting, let me know. The more real-world cases we address, the better Mailtemi can become.
+
