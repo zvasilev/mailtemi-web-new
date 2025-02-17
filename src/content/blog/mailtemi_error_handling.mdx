@@ -4,9 +4,9 @@ subtitle: 📩 [Email Client] ⟷ [Airport Wi-Fi (requires authentication)] ⟷ 
 image: "/images/posts/error.webp"
 author: Zhivko Vasilev
 date: 2025-02-15T05:00:00Z
-categories: ["Config", "Tech"]
+categories: ["UX", "Tech"]
 featured: false
-draft: true
+draft: false
 ---
 
 Two weeks ago, arriving at Brussels, I had a frustrating experience with Mailtemi. I attempted to reply to an email, only to be met with a vague error message: "No Network." The app provided a retry button, but no further context. Was it a weak Wi-Fi signal? A network switch? A captive portal blocking my connection? The lack of detail made troubleshooting unnecessarily difficult. This is somewhat expected for protocols that do not use HTTP, like IMAP/SMTP, but I knew HTTP provides more detailed informati...
@@ -53,12 +53,23 @@ For example, instead of just "Invalid Credentials," JMAP can provide detailed re
 ## Making Error Reporting More User-Friendly
 
 1. **Keep detailed descriptions if the protocol provides them.**
+    JMAP offers more descriptive error messages, making it easier to diagnose issues.
 2. **Ensure error details are preserved through the app.**
+    Instead of truncating useful information, Mailtemi retains and presents them properly.
 3. **Show relevant details in the UI.**
+    Instead of "No Network," the message could now say "No Network: Cellular data is restricted due to cost limits.
 4. **Use smarter retry strategies.**
+    If a network switch is detected, Mailtemi will attempt an automatic retry.
 5. **Display account-specific errors.**
+    Hhighlights which account is affected.
 6. **Allow users to access detailed logs.**
+    A "⋯" button reveals server responses, including authentication failures and proxy issues.
 7. **Clarify where the error originates.**
+    The message now specifies whether the issue is with the email server, a proxy, or Mailtemi itself.
+
+
+Example if an 🔰 [Load Balancer/Defense Proxy] works but 📮 [Email Server] behind it is stopped.
+[![Error Details](/images/posts/error_details.png)](/images/posts/error_details.png)
 
 ## The Limitation: JMAP vs. IMAP/SMTP
 

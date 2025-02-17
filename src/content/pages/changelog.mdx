@@ -4,6 +4,36 @@ date: "2024-06-14"
 description: ""
 draft: false
 ---
+<Changelog date="v3.1.34 (Feb 17, 2025)">
+<Badge type="added">added</Badge>
+
+**Improved Error Messages for Easier Troubleshooting**  
+This update enhances error handling, especially for JMAP users, making it easier to understand and resolve email issues.
+
+- **More Informative Error Messages** – Instead of vague failures, Mailtemi now provides clearer explanations when sending or receiving emails.
+- **JMAP-Specific Enhancements** – Error responses from JMAP now include additional context, such as whether an issue is due to account restrictions, network problems, or server errors.
+- **Better Identification of Connection Failures** – Mailtemi now distinguishes between different failure points, such as authentication issues, network restrictions, or server downtime.
+- **Improved UI for Troubleshooting** – When possible, the app retains server-provided details while simplifying error titles for easier understanding.
+
+<Badge type="changed">fixed</Badge>
+- Auto-discovery of set-up accounts doesn't add OAuth scopes, causing later reauthentication errors.
+- Error messages could cause the Settings screen to pop up.
+
+</Changelog>
+
+<Changelog date="v3.1.32 (Jan 26, 2025)">
+<Badge type="added">added</Badge>
+
+**Automatic Email Configuration with Autodiscovery**  
+Mailtemi now supports OpenID Connect for secure authentication.
+   Supported methods include:
+
+- **JMAP Service Discovery** - For accounts using the JMAP protocol, Mailtemi automatically retrieves configuration details to streamline the setup.
+- **IMAP SRV Lookups** - Using DNS SRV records, Mailtemi identifies your email provider’s IMAP and SMTP servers for seamless configuration.
+- **Microsoft AutoDiscover for MSGraph** - For Microsoft-based accounts, including Office 365, Mailtemi leverages AutoDiscover to securely fetch the necessary settings.
+- **Well-Known URL Lookup** - For providers using standard configuration URLs, Mailtemi ensures your account is set up with minimal effort.
+
+</Changelog>
 <Changelog date="v3.1.30 (Oct 9, 2024)">
 <Badge type="added">added</Badge>
 
