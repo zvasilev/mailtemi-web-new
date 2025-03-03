@@ -14,8 +14,27 @@ Our company does not collect any data. We won’t share your personal data e.g. 
 
 ### 3. Email Service Providers
 
-All of Your credentials are in Apple Keychain, managed by Apple services. Our App does not store your credentials outside of Apple Keychain. Our App does use OAuth token to subscribe for push notifications on behalf of you. We keep only a hash(one-way transformation) of your email address to redirect notifications correctly.
-Our App's use of information received from Google APIs will adhere to [Google API User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use Requirements. 
+All of your credentials are stored in Apple Keychain, managed by Apple services. Our app does not store your credentials outside of Apple Keychain. Our app uses OAuth tokens to subscribe for push notifications on your behalf. We keep only a hash (one-way transformation) of your email address to redirect notifications correctly. Our App's use of information received from Google APIs will adhere to [Google API User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use Requirements. 
+
+The application does not share, transfer, or disclose Email Service (Google/Fastmail/Outlook) user data. The application does not use Email Service (Google/Fastmail/Outlook) user data outside the user's device. All modifications to user data are initiated by the user.
+
+
+
+The only data that goes through the Mailtemi server is push notifications:
+
+* For Gmail, it uses the Gmail API protocol: https://developers.google.com/gmail/api/guides/push
+
+* For Outlook, it uses the Microsoft Graph protocol: https://learn.microsoft.com/en-us/graph/api/resources/change-notifications-api-overview?view=graph-rest-1.0
+
+* For Fastmail, it uses the JMAP protocol: https://datatracker.ietf.org/doc/html/rfc8620#section-7
+
+No data is stored on the Mailtemi server. Only the mapping of the device ID and subscription ID (depending on the protocol) is maintained. Push notifications are redirected to the user’s device, where they are handled.
+
+Retention of user data:
+
+* For emails, the application stores the most recent 500 emails. When a new email arrives, the oldest one is cleared from the application cache.
+
+* For contacts, they reside in a full cache on the device.
 
 ### 4. Security
 
