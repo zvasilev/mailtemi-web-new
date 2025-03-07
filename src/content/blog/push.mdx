@@ -1,0 +1,74 @@
+---
+title: Push Notification. The Pebbles That Ping Your Mobile Glass.
+subtitle: How Mailtemi handles push notifications securely and efficiently.
+image: "/images/posts/push.png"
+author: Zhivko Vasilev
+date: 2025-03-06T05:00:00Z
+categories: ["Tech"]
+featured: false
+draft: true
+---
+
+Enhancing Mobile Email with Push
+
+In today's fast-paced digital landscape, timely communication is a necessity. While many users express frustration over incessant notifications, the absence of prompt email alerts can be equally vexing. This underscores the importance of efficient push notification systems, especially for mobile email clients.
+
+## The Challenge of Push Notifications on Mobile Devices
+
+Historically, desktop email applications maintained persistent connections to servers, allowing immediate updates upon any changes. However, this approach is impractical for mobile devices due to battery consumption concerns. Mobile operating systems like iOS and Android offer push APIs to address this, but the lack of a standardized communication protocol between email servers and clients complicates seamless integration.
+
+## Current Landscape of Email Push Notifications
+
+Various proprietary APIs, such as the Gmail API, Microsoft Graph, and ActiveSync, provide push notification capabilities. However, these are often service-specific, limiting their applicability across different platforms. Conversely, mechanisms like Apple's IMAP `XAPPLEPUSHSERVICE` allow servers to push notifications to specific email apps, but this approach lacks universality, leading to fragmented user experiences.
+
+Because there is no standard way to implement IMAP push, some email apps resort to storing user passwords on their proxy servers—an unacceptable security risk. As a result, Mailtemi only supports standards that uphold user credential security.
+
+## Introducing JMAP: A Unified Solution
+
+The JSON Meta Application Protocol (JMAP) emerges as a promising solution, offering a standardized method for email servers to deliver push notifications to clients. JMAP enables near-instant updates, ensuring data synchronization with minimal latency while maintaining strong security measures.
+
+A key advantage of JMAP is its focus on security. The protocol transmits fully encrypted payloads, ensuring that intermediary proxy servers only access ephemeral device tokens, safeguarding user data. Additionally, JMAP incorporates verification mechanisms to prevent potential abuse by proxy or email servers.
+
+Two improvements are currently in the queue for official standardization on top of the original JMAP standard:
+
+- The first enhancement allows email servers to provide additional information, enabling devices like smartwatches to display relevant details without waiting for the phone to sync.
+- The second improvement introduces key rotation, ensuring compliance with UnifiedPush ([https://datatracker.ietf.org/doc/draft-ietf-jmap-webpush-vapid/](https://datatracker.ietf.org/doc/draft-ietf-jmap-webpush-vapid/)). This will enable push notifications without relying on Google's FCM back-end.
+
+## Security Considerations
+
+All three protocols—JMAP, MS Graph, and Gmail API—ensure that no sensitive email content is transferred through intermediary proxy servers. The primary function of the push proxy server is to map the device ID to the correct provider (Apple APNs, FCM) and the subscription ID, then forward the push notification accordingly.
+
+One potential privacy concern is that Gmail push notifications include the user's email address. In contrast, JMAP and MS Graph mitigate this by introducing an additional verification step, allowing the email client and server to exchange a subscription ID or token instead of exposing personal identifiers.
+
+Mailtemi enhances security by hashing email addresses with SHA-256 at the network level before storing the mapping. This ensures that even if data were intercepted, no readable email addresses would be exposed, further protecting user privacy.
+
+## Mailtemi: Bridging the Gap
+
+Mailtemi integrates all protocols that support push notifications (JMAP, MS Graph, and Gmail APIs). From a security perspective, Mailtemi's push proxy server handles non-personal data when working with JMAP and MS Graph, ensuring user privacy. For Gmail, while the push notification includes the user's email address, Mailtemi employs secure connections and additional measures to hash the email using SHA-256. This hashed value is stored to route future notifications accurately without exposing sensitive information.
+
+## Future Improvements
+
+Not all emails are equal. Newsletters or marketing emails don’t need immediate attention. But a login warning or an email from a conversation you recently sent? Probably yes.
+
+Many email senders use the same services to send marketing emails or login hints. Statistically, big players can categorize them with high accuracy, which is sufficient for most users.
+
+Mailtemi prioritizes security and takes a different approach:
+
+- Initially, all emails will trigger a normal notification.
+- Users can move emails to "Summary" notifications or disable alerts via a swipe action in the email list or the "More" menu in the email viewer.
+- Many users have server-side email rules that sort emails into different folders/labels. Mailtemi will offer options to control which folders/labels trigger notifications.
+- **Inbox:** This is a special case. For some, it’s crucial to see requests from new clients immediately. For others, it can wait. Mailtemi will help surface emails from unknown senders in these cases.
+- Mailtemi will track updates from these emails internally because the app's email cache (500 emails) might not retain that info.
+- **Focus mode:** Users can choose which email accounts should trigger notifications.
+
+## Why Push Notifications Matter
+
+Push notifications were initially considered a paid subscription feature due to the cost of maintaining the proxy server that delivers notifications between the email server and the device push service. However, they are crucial for an optimal email experience, so Mailtemi provides them for free.
+
+If you appreciate this service, show your support with a high five—or rather, a five-star rating—on the App Store. Your support helps keep Mailtemi improving and delivering the best possible experience.
+
+## Conclusion
+
+Efficient push notifications are essential for modern email clients, particularly on mobile devices where resource optimization is crucial. Protocols like JMAP, along with services like Microsoft Graph and Gmail API, offer robust frameworks for implementing these notifications. Solutions like Mailtemi further enhance these capabilities by providing secure, integrated support across multiple platforms, paving the way for a more unified and responsive email experience.
+
+As digital communication continues to evolve, adopting standardized protocols and integrated services will be key to meeting user expectations for immediacy and security in email communications.

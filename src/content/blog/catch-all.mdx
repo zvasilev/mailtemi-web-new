@@ -1,53 +1,67 @@
 ---
-title:  Catch-all/ Wildcard aliases/ Send Identities of standalone JMAP servers.
-subtitle: This is why no updates.
+title:  Catch-All & Masked Emails in Mailtemi
+subtitle: ow Mailtemi helps you manage all your emails in one inbox with aliases, masked emails, and catch-all addresses.
 image: "/images/posts/email-storage.png"
 author: Zhivko Vasilev
-date: 2024-09-10T05:00:00Z
+date: 2025-04-10T05:00:00Z
 categories: ["News", "Tech"]
 featured: false
 draft: true
 ---
 
+One Inbox to Rule Them All
 
+Ever wished you could manage all your emails in one place without worrying about different addresses? With Mailtemi, you can handle multiple email types—primary, alias, masked, and catch-all—effortlessly in a single inbox.
 
-**Wildcard Email Sending in Mailtemi**
+## Why Do You Need This?
 
-Finding an email app that meets specific needs can sometimes be tricky, especially for those using custom domains and wildcard email addresses. Mailtemi supports wildcard email sending using the `*@my-domain.com` format, a feature designed to make email management more convenient for JMAP accounts.
+Your primary email address is straightforward; it’s the one provided by your email service. But sometimes, you need more flexibility. That’s where aliases, masked emails, and catch-all addresses come in.
 
-### Why Wildcard Sending is Useful
+## Useful Use Cases
 
-Wildcard email addresses, represented as `*@my-domain.com`, allow users to send and receive emails from any address within their domain. This can be especially helpful for:
+- **Aliases** – Instead of always using `support@your-domain.com`, you can create an alias for mailing lists or professional use, like `john.doe@your-domain.com`.
+- **Masked Email** – Ideal for signing up for marketing newsletters. They work like aliases but are auto-generated when you register for a service.
+- **Catch-All** – Available for custom domains. It ensures you receive emails even if the sender mistypes your address, e.g., `supprt@your-domain.com` instead of `support@your-domain.com`.
 
-- **Protecting privacy** by using unique email addresses for different services.
-- **Simplifying email management** by consolidating multiple sender identities under one domain.
-- **Adapting to specific needs** of users managing custom domains.
+<Image src="/images/catch-all-masked-email.png" alt="Catch-All and Masked Emails Illustration" />
 
-This functionality relies on the JMAP protocol’s Identity API, which makes such dynamic email address management possible.
+## UI Representation
 
-### Custom 'From' Field Editing
+Knowing how an email reached your inbox can be helpful:
 
-Mailtemi allows users to:
+- **Primary Address** – Likely important emails.
+- **Alias** – Predefined context, often for work or specific groups.
+- **Masked Email** – Not spam, but possibly unimportant (e.g., newsletters).
+- **Catch-All** – Might need a later review.
 
-- **Edit the 'From' field** to input a wildcard address like `*@my-domain.com`.
-- **Send emails from any address** within their custom domain using JMAP accounts.
+## Security & Privacy Considerations
 
-This feature directly addresses a gap in other email clients, offering flexibility without requiring users to leave the app.
+Using masked emails and catch-all addresses can enhance security and privacy by reducing spam exposure and minimizing the risk of phishing attacks. Instead of sharing your primary email with every service, masked emails provide a unique, disposable alternative. Catch-all addresses ensure no email is lost due to typos but require careful monitoring to avoid phishing attempts. Consider setting up filters or rules to automatically sort and identify emails from unknown sources.
 
-### Inspired by User Feedback
+## Filtering & Organization Tips
 
-This functionality was shaped by feedback from Mailtemi users. One of them, shared his challenge of finding an iOS app that could support wildcard sending profiles. His input helped refine the feature to address real-world needs effectively.
+Managing multiple email types efficiently requires a structured approach. Here are some ways to keep your inbox organized:
 
-### First on Android
+- **Labels & Folders** – Assign specific labels or move masked emails to a separate folder to de-clutter your primary inbox.
+- **Automated Rules** – Create filters to flag emails sent to masked addresses, making it easier to distinguish between essential and non-essential emails.
+- **Notification Settings** – Reduce distractions by configuring notifications only for primary and alias emails, while keeping masked and catch-all messages silent until reviewed.
 
-Interestingly, this feature has been developed first for Android, marking a shift in Mailtemi’s usual iOS-first development approach. The Android version is still in progress but will soon bring the same flexible wildcard sending capabilities to a broader audience.
+## Creating Non-Primary Email Addresses
 
-### Considering Improvements with JMAP Contacts and Masked Email
+Currently, this functionality is available only for **JMAP** accounts, which clearly separate email address roles:
 
-The potential for wildcard email sending doesn’t stop here. Future updates will consider integrating JMAP Contacts, enabling more streamlined identity management. JMAP Contacts are still a draft RFC, but once finalized, the app will adopt them as soon as possible due to the improved send workflow they offer. 
+- **Aliases** can be managed in settings.
+- **Masked Emails** are automatically generated for newsletter signups. While Mailtemi does not yet support their creation, viewing and managing existing ones is possible.
+- **Catch-All** is simply indicated by an icon if an email doesn’t match an alias or masked email.
 
-For Fastmail users, this could also tie in with **Masked Email**, a feature that allows creating unique, disposable email addresses for additional privacy and security. Combining wildcard sending with Masked Email will make managing custom domains more intuitive and flexible.
+## Composing Emails
 
+- **Replies** use the address the recipient originally contacted.
+- **New emails** default to the primary address unless changed in settings.
+- **Catch All addresses** – If you own your domain and have catch-all enabled, selecting `*@your-domain.com` allows you to manually enter any address under your domain.
 
- 
+## JMAP: The Key to Advanced Email Handling
 
+These advanced email features are only possible with **JMAP**, a modern email protocol that simplifies handling multiple addresses efficiently.
+
+Mailtemi ensures that managing your emails is as seamless as possible, giving you full control over your inbox.
