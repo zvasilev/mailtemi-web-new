@@ -3,7 +3,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import AutoImport from "astro-auto-import";
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
@@ -13,7 +13,9 @@ import icon from 'astro-icon';
 export default defineConfig({
   site: "http://mailtemi.com",
   image: {
-    service: squooshImageService(),
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
   },
   integrations: [
     react(),

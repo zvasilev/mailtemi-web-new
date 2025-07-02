@@ -12,12 +12,12 @@
     "format": "prettier -w ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.1.9",
-    "@astrojs/rss": "^4.0.9",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.2",
-     "astro": "^4.16.18",
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/react": "^4.1.1",
+    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/tailwind": "^6.0.2",
+     "astro": "^5.10.2",
     "astro-auto-import": "^0.4.4",
     "astro-font": "^0.1.81",
     "astro-embed": "^0.7.2",
