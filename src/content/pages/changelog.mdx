@@ -1,9 +1,25 @@
 ---
 title: "Changelog"
-date: "2024-06-14"
+date: "2024-07-15"
 description: ""
 draft: false
 ---
+
+<Changelog date="v3.1.36 (Jul 15, 2025)">
+<Badge type="added">added</Badge>
+
+**Email Setup Enhancements**
+
+- Improved automatic configuration based on email address.
+- Removed the restriction that required an email address for login — you can now log in with a username for JMAP accounts.
+- Support for binding JMAP accounts with a CardDAV contacts server hosted on the same server.
+- Added detailed error descriptions during auto-discovery to assist with troubleshooting.
+
+<Badge type="changed">fixed</Badge>
+- Fixed an issue where Base64-encoded messages sometimes failed to display when using the MSGraph protocol.
+- Resolved a synchronization issue that caused JMAP to become stale on certain servers.
+
+</Changelog>
 <Changelog date="v3.1.34 (Feb 17, 2025)">
 <Badge type="added">added</Badge>
 
