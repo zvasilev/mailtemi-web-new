@@ -2,11 +2,7 @@
 import config from "@/config/config.json";
 
 const {
-  call_to_action: {
-    title,
-    description,
-    button: { label, link },
-  },
+  call_to_action: { title, description, buttons = [] },
 } = config;
 ---
 
@@ -19,7 +15,21 @@ const {
         <div class="row">
           <div class="lg:col-7">
             <h2 class="h1 text-white">{title}</h2>
-            <a class="btn btn-white mt-8" href={link}>{label}</a>
+            {buttons && buttons.length > 0 && (
+              <div class="mt-8 flex flex-col flex-wrap gap-4 sm:flex-row">
+                {buttons.map(({ label, link }, idx) => (
+                  <a
+                    class="btn btn-white"
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
           <div class="mt-8 lg:col-5 lg:mt-0">
             <p class="text-white">

@@ -20,10 +20,16 @@
   "call_to_action": {
     "title": "Unified Email & Contacts",
     "description": "",
-    "button": {
-      "label": "Download",
-      "link": "https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306"
-    }
+    "buttons": [
+      {
+        "label": "Download on iOS",
+        "link": "https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306"
+      },
+      {
+        "label": "Get it on Android",
+        "link": "https://play.google.com/store/apps/details?id=com.mailtemi.email"
+      }
+    ]
   },
 
   "disqus": {
