@@ -1,7 +1,6 @@
 ---
 import dateFormat from "@/lib/utils/dateFormat";
 import readingTime from "@/lib/utils/readingTime";
-import Disqus from "./function-components/Disqus";
 
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import {
@@ -67,7 +66,7 @@ const { Content } = await post.render();
         <div class="content">
           <Content />
         </div>
-        <Disqus client:load />
+  {/** Comments removed */}
       </div>
     </div>
   </div>
