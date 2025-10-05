@@ -1,0 +1,74 @@
+---
+title: "What's in Progress"
+subtitle: Behind the Scenes at Mailtemi
+image: "/images/posts/whats-new.png"
+author: Zhivko Vasilev
+date: 2025-10-05T05:00:00Z
+categories: ["Android", "JMAP", "Email", "Calendaring", "GNOME"]
+featured: false
+draft: false
+---
+
+Although Mailtemi is available on both iOS and Android, a lot of the work is still happening behind the scenes. Much of the recent effort has gone into making sure iOS, Android, and future platforms like macOS and GNOME share the same underlying logic — while keeping their native UIs clean and consistent.
+
+Here are the **two and a half** main goals currently in motion — and a peek at what's been happening quietly in the background.
+
+---
+
+### 1. Full Offline Storage
+
+#### Why this matters
+
+- **Server search varies a lot** — some mail servers handle search efficiently, while others are limited or slower. This makes it tricky to rely on server-side search for a consistent user experience.  
+- **Too many test environments** — maintaining multiple servers to simulate different setups is time-consuming, especially for a solo developer.  
+- **Speed and control** — local storage means instant results, no waiting for server responses, and more privacy.
+
+#### What's planned
+
+Mailtemi is getting a **full offline store**, using **SQLite** with [FTS5 full-text search](https://sqlite.org/fts5.html).  
+
+This will make local searches instant and reliable — even offline or on poor connections.  
+
+Offline mode will be **optional**, so users can disable it if they prefer to rely on server-side search.
+
+---
+
+### 2. Calendaring (Current Goal)
+
+Calendaring is now the main focus.  
+
+The goal is to support **JMAP Calendars**, a modern, JSON-based protocol that's much easier to sync and reason about than CalDAV. Worth noting that JMAP Calendaring is still a draft RFC, so the specification is evolving. Mailtemi already has **CalDAV ↔ JSCalendar** converters, so the internal logic and UI will use JSCalendar directly.  
+
+While [Stalw.art JMAP](https://stalw.art/), an open source server, is already ahead with JMAP Calendaring support, it hasn't been released yet. Fastmail also supports JMAP Calendars, but isn't open for 3rd party clients. In the meantime, I'm using [convert.jmap.cloud](https://convert.jmap.cloud/) — a helpful tool from the Stalw.art developer designed to assist client implementers — along with test case artifacts to build out the **calendar UI** and get everything ready for when Stalw.art's JMAP Calendar support becomes publicly available. The interface work is quite tedious, but the goal is to have Mailtemi ready to integrate the moment the server is released.
+
+---
+
+### 3. The "Half" Goal — A Hint of Linux Mischief
+
+This one started as a side project — a small UI test tool for debugging search components and previewing interface ideas.  
+
+Out of curiosity, I tried **GNOME for Windows**, and it worked surprisingly well. Then someone on Mastodon suggested I check out **libadwaita**, and… wow. It looks *really* good. Clean, smooth, and it actually feels ready for **mobile Linux UIs**. I was genuinely delighted by how polished it looked and behaved.
+
+So, of course, I continued hacking.  
+
+I even got **WebView** compiling and showing simple content (it flickers like a disco ball, but hey — it works).  
+
+The libadwaita client is still a bit clunky — not ugly, but definitely rough around the edges. That said, it works functionally, and I've already set up a test environment to iterate on **search** much faster than before. I'm also remaking the POC with proper libadwaita patterns for **Settings** screens, and those are actually looking pretty good.
+
+At this point, I might have accidentally started **considering a Linux mobile version of Mailtemi**.  
+
+Whatever that means. 😏  
+![Settings](https://files.mastodon.social/media_attachments/files/115/311/761/724/633/202/original/ca51eb507c89c026.png)
+
+
+---
+
+### Looking Ahead
+
+In the coming months, I'll be focusing mainly on:
+
+- Advancing **Calendaring**, preparing the UI for future JMAP integration.  
+- Rolling out **smaller improvements and bug fixes** for the iOS and Android apps.
+
+There's a lot of invisible progress happening, but once these building blocks are ready — things will start surfacing fast. Hopefully 😏
+
