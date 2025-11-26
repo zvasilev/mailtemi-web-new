@@ -2,7 +2,7 @@
 banner:
   title: One Inbox. Every Folder. Simplified.
   content: Effortlessly organize folders and labels from Office 365, JMAP, or Gmail into a seamless, unified view.<br><br> Mailtemi bridges the gap between email protocols, combining the modern efficiency of JMAP with full compatibility for IMAP and MSGraph. With every account and folder in one place, you’ll spend less time navigating and more time focusing on what matters. No extra steps, no compromises—just an inbox that works the way you need it to.
-  image: /images/ios-android/two-phones.png
+  image: /images/ios-android/two-phones-small.png
   button:
     label: Download
     link: "https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306"
