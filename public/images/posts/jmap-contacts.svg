@@ -1,0 +1,307 @@
+<svg width="1024" height="682" viewBox="0 0 1024 682" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0efff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Phone gradient -->
+    <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d3748;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a202c;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Screen gradient -->
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f7fafc;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Sync circle gradient -->
+    <linearGradient id="syncGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3182ce;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Contact card gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f7fafc;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Contact colors -->
+    <linearGradient id="contact1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#63b3ed" />
+      <stop offset="100%" style="stop-color:#4299e1" />
+    </linearGradient>
+    <linearGradient id="contact2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#68d391" />
+      <stop offset="100%" style="stop-color:#48bb78" />
+    </linearGradient>
+    <linearGradient id="contact3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fc8181" />
+      <stop offset="100%" style="stop-color:#f56565" />
+    </linearGradient>
+    <linearGradient id="contact4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f6ad55" />
+      <stop offset="100%" style="stop-color:#ed8936" />
+    </linearGradient>
+    <linearGradient id="contact5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#b794f4" />
+      <stop offset="100%" style="stop-color:#9f7aea" />
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Soft shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#3182ce" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Card shadow -->
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#2d3748" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1024" height="682" fill="url(#bgGradient)"/>
+  
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3182ce" stroke-width="1"/>
+    </pattern>
+    <rect width="1024" height="682" fill="url(#grid)"/>
+  </g>
+  
+  <!-- Connection lines (behind everything) -->
+  <g opacity="0.25">
+    <path d="M 290 341 Q 512 260 734 341" fill="none" stroke="#4299e1" stroke-width="2" stroke-dasharray="8,4"/>
+    <path d="M 290 341 Q 512 420 734 341" fill="none" stroke="#4299e1" stroke-width="2" stroke-dasharray="8,4"/>
+  </g>
+  
+  <!-- Left Phone (iOS style - more rounded) -->
+  <g transform="translate(150, 180)" filter="url(#shadow)">
+    <!-- Phone body -->
+    <rect x="0" y="0" width="130" height="260" rx="22" ry="22" fill="url(#phoneGradient)"/>
+    <!-- Screen -->
+    <rect x="7" y="11" width="116" height="238" rx="15" ry="15" fill="url(#screenGradient)"/>
+    <!-- Notch (iOS style) -->
+    <rect x="40" y="11" width="50" height="18" rx="9" ry="9" fill="#1a202c"/>
+    <!-- Home indicator -->
+    <rect x="45" y="235" width="40" height="4" rx="2" ry="2" fill="#cbd5e0"/>
+    
+    <!-- Contact list UI -->
+    <g transform="translate(14, 40)">
+      <!-- Header with person icon -->
+      <rect x="0" y="0" width="102" height="22" rx="4" fill="#edf2f7"/>
+      <circle cx="14" cy="11" r="6" fill="#a0aec0"/>
+      <circle cx="14" cy="9" r="3" fill="#a0aec0"/>
+      <rect x="26" y="7" width="36" height="6" rx="2" fill="#a0aec0"/>
+      
+      <!-- Contact rows with avatars -->
+      <g transform="translate(0, 30)">
+        <circle cx="14" cy="14" r="11" fill="url(#contact1)"/>
+        <circle cx="14" cy="11" r="5" fill="white" opacity="0.9"/>
+        <ellipse cx="14" cy="20" rx="7" ry="4" fill="white" opacity="0.9"/>
+        <rect x="32" y="8" width="55" height="5" rx="2" fill="#e2e8f0"/>
+        <rect x="32" y="17" width="38" height="4" rx="2" fill="#edf2f7"/>
+      </g>
+      <g transform="translate(0, 62)">
+        <circle cx="14" cy="14" r="11" fill="url(#contact2)"/>
+        <circle cx="14" cy="11" r="5" fill="white" opacity="0.9"/>
+        <ellipse cx="14" cy="20" rx="7" ry="4" fill="white" opacity="0.9"/>
+        <rect x="32" y="8" width="48" height="5" rx="2" fill="#e2e8f0"/>
+        <rect x="32" y="17" width="52" height="4" rx="2" fill="#edf2f7"/>
+      </g>
+      <g transform="translate(0, 94)">
+        <circle cx="14" cy="14" r="11" fill="url(#contact3)"/>
+        <circle cx="14" cy="11" r="5" fill="white" opacity="0.9"/>
+        <ellipse cx="14" cy="20" rx="7" ry="4" fill="white" opacity="0.9"/>
+        <rect x="32" y="8" width="60" height="5" rx="2" fill="#e2e8f0"/>
+        <rect x="32" y="17" width="32" height="4" rx="2" fill="#edf2f7"/>
+      </g>
+      <g transform="translate(0, 126)">
+        <circle cx="14" cy="14" r="11" fill="url(#contact4)"/>
+        <circle cx="14" cy="11" r="5" fill="white" opacity="0.9"/>
+        <ellipse cx="14" cy="20" rx="7" ry="4" fill="white" opacity="0.9"/>
+        <rect x="32" y="8" width="42" height="5" rx="2" fill="#e2e8f0"/>
+        <rect x="32" y="17" width="48" height="4" rx="2" fill="#edf2f7"/>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Right Phone (Android style - less rounded) -->
+  <g transform="translate(744, 180)" filter="url(#shadow)">
+    <!-- Phone body -->
+    <rect x="0" y="0" width="130" height="260" rx="14" ry="14" fill="url(#phoneGradient)"/>
+    <!-- Screen -->
+    <rect x="5" y="5" width="120" height="250" rx="10" ry="10" fill="url(#screenGradient)"/>
+    <!-- Camera hole (Android style) -->
+    <circle cx="65" cy="16" r="5" fill="#1a202c"/>
+    
+    <!-- Contact list UI -->
+    <g transform="translate(12, 34)">
+      <!-- Header with person icon -->
+      <rect x="0" y="0" width="106" height="22" rx="4" fill="#edf2f7"/>
+      <circle cx="14" cy="11" r="6" fill="#a0aec0"/>
+      <circle cx="14" cy="9" r="3" fill="#a0aec0"/>
+      <rect x="26" y="7" width="40" height="6" rx="2" fill="#a0aec0"/>
+      
+      <!-- Contact rows with avatars -->
+      <g transform="translate(0, 30)">
+        <circle cx="14" cy="14" r="11" fill="url(#contact1)"/>
+        <circle cx="14" cy="11" r="5" fill="white" opacity="0.9"/>
+        <ellipse cx="14" cy="20" rx="7" ry="4" fill="white" opacity="0.9"/>
+        <rect x="32" y="8" width="55" height="5" rx="2" fill="#e2e8f0"/>
+        <rect x="32" y="17" width="38" height="4" rx="2" fill="#edf2f7"/>
+      </g>
+      <g transform="translate(0, 62)">
+        <circle cx="14" cy="14" r="11" fill="url(#contact2)"/>
+        <circle cx="14" cy="11" r="5" fill="white" opacity="0.9"/>
+        <ellipse cx="14" cy="20" rx="7" ry="4" fill="white" opacity="0.9"/>
+        <rect x="32" y="8" width="48" height="5" rx="2" fill="#e2e8f0"/>
+        <rect x="32" y="17" width="52" height="4" rx="2" fill="#edf2f7"/>
+      </g>
+      <g transform="translate(0, 94)">
+        <circle cx="14" cy="14" r="11" fill="url(#contact3)"/>
+        <circle cx="14" cy="11" r="5" fill="white" opacity="0.9"/>
+        <ellipse cx="14" cy="20" rx="7" ry="4" fill="white" opacity="0.9"/>
+        <rect x="32" y="8" width="60" height="5" rx="2" fill="#e2e8f0"/>
+        <rect x="32" y="17" width="32" height="4" rx="2" fill="#edf2f7"/>
+      </g>
+      <g transform="translate(0, 126)">
+        <circle cx="14" cy="14" r="11" fill="url(#contact4)"/>
+        <circle cx="14" cy="11" r="5" fill="white" opacity="0.9"/>
+        <ellipse cx="14" cy="20" rx="7" ry="4" fill="white" opacity="0.9"/>
+        <rect x="32" y="8" width="42" height="5" rx="2" fill="#e2e8f0"/>
+        <rect x="32" y="17" width="48" height="4" rx="2" fill="#edf2f7"/>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Center: Contact Card with Sync -->
+  <g transform="translate(512, 341)">
+    <!-- Outer glow rings -->
+    <circle cx="0" cy="0" r="85" fill="none" stroke="#4299e1" stroke-width="1" opacity="0.15"/>
+    <circle cx="0" cy="0" r="95" fill="none" stroke="#4299e1" stroke-width="1" opacity="0.08"/>
+    
+    <!-- Main contact card -->
+    <g filter="url(#cardShadow)">
+      <rect x="-55" y="-70" width="110" height="140" rx="12" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1"/>
+      
+      <!-- Person avatar -->
+      <circle cx="0" cy="-25" r="28" fill="url(#syncGradient)"/>
+      <circle cx="0" cy="-32" r="12" fill="white" opacity="0.9"/>
+      <ellipse cx="0" cy="-10" rx="16" ry="10" fill="white" opacity="0.9"/>
+      
+      <!-- Contact info lines -->
+      <rect x="-35" y="18" width="70" height="8" rx="3" fill="#e2e8f0"/>
+      <rect x="-28" y="32" width="56" height="6" rx="2" fill="#edf2f7"/>
+      <rect x="-32" y="44" width="64" height="6" rx="2" fill="#edf2f7"/>
+      
+      <!-- Sync badge -->
+      <circle cx="38" cy="-52" r="16" fill="url(#syncGradient)" filter="url(#glow)"/>
+      <g fill="white" transform="translate(38, -52)">
+        <path d="M -6 -2 L 4 -2 L 4 -6 L 9 0 L 4 6 L 4 2 L -6 2 Z" opacity="0.95"/>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Floating contact cards (left side) -->
+  <g filter="url(#cardShadow)">
+    <!-- Card 1 -->
+    <g transform="translate(320, 240)">
+      <rect x="-28" y="-35" width="56" height="70" rx="6" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+      <circle cx="0" cy="-12" r="14" fill="url(#contact5)"/>
+      <circle cx="0" cy="-16" r="6" fill="white" opacity="0.85"/>
+      <ellipse cx="0" cy="-5" rx="8" ry="5" fill="white" opacity="0.85"/>
+      <rect x="-18" y="10" width="36" height="4" rx="2" fill="#e2e8f0"/>
+      <rect x="-14" y="18" width="28" height="3" rx="1" fill="#edf2f7"/>
+    </g>
+    
+    <!-- Card 2 -->
+    <g transform="translate(355, 420)">
+      <rect x="-24" y="-30" width="48" height="60" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+      <circle cx="0" cy="-10" r="12" fill="url(#contact1)"/>
+      <circle cx="0" cy="-13" r="5" fill="white" opacity="0.85"/>
+      <ellipse cx="0" cy="-4" rx="7" ry="4" fill="white" opacity="0.85"/>
+      <rect x="-15" y="8" width="30" height="4" rx="2" fill="#e2e8f0"/>
+      <rect x="-12" y="15" width="24" height="3" rx="1" fill="#edf2f7"/>
+    </g>
+  </g>
+  
+  <!-- Floating contact cards (right side) -->
+  <g filter="url(#cardShadow)">
+    <!-- Card 3 -->
+    <g transform="translate(704, 250)">
+      <rect x="-24" y="-30" width="48" height="60" rx="5" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+      <circle cx="0" cy="-10" r="12" fill="url(#contact3)"/>
+      <circle cx="0" cy="-13" r="5" fill="white" opacity="0.85"/>
+      <ellipse cx="0" cy="-4" rx="7" ry="4" fill="white" opacity="0.85"/>
+      <rect x="-15" y="8" width="30" height="4" rx="2" fill="#e2e8f0"/>
+      <rect x="-12" y="15" width="24" height="3" rx="1" fill="#edf2f7"/>
+    </g>
+    
+    <!-- Card 4 -->
+    <g transform="translate(680, 430)">
+      <rect x="-28" y="-35" width="56" height="70" rx="6" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+      <circle cx="0" cy="-12" r="14" fill="url(#contact4)"/>
+      <circle cx="0" cy="-16" r="6" fill="white" opacity="0.85"/>
+      <ellipse cx="0" cy="-5" rx="8" ry="5" fill="white" opacity="0.85"/>
+      <rect x="-18" y="10" width="36" height="4" rx="2" fill="#e2e8f0"/>
+      <rect x="-14" y="18" width="28" height="3" rx="1" fill="#edf2f7"/>
+    </g>
+  </g>
+  
+  <!-- Address book icon (top left area) -->
+  <g transform="translate(85, 120)" filter="url(#cardShadow)" opacity="0.7">
+    <rect x="0" y="0" width="44" height="54" rx="4" fill="#4299e1"/>
+    <rect x="4" y="4" width="36" height="46" rx="2" fill="white"/>
+    <!-- Book binding -->
+    <rect x="0" y="0" width="8" height="54" rx="2" fill="#3182ce"/>
+    <circle cx="4" cy="12" r="2" fill="#2c5282"/>
+    <circle cx="4" cy="27" r="2" fill="#2c5282"/>
+    <circle cx="4" cy="42" r="2" fill="#2c5282"/>
+    <!-- Person on book -->
+    <circle cx="26" cy="18" r="8" fill="#e2e8f0"/>
+    <circle cx="26" cy="15" r="4" fill="#a0aec0"/>
+    <ellipse cx="26" cy="23" rx="5" ry="3" fill="#a0aec0"/>
+    <rect x="14" y="32" width="24" height="3" rx="1" fill="#e2e8f0"/>
+    <rect x="16" y="38" width="20" height="2" rx="1" fill="#edf2f7"/>
+  </g>
+  
+  <!-- Address book icon (bottom right area) -->
+  <g transform="translate(895, 508)" filter="url(#cardShadow)" opacity="0.7">
+    <rect x="0" y="0" width="44" height="54" rx="4" fill="#48bb78"/>
+    <rect x="4" y="4" width="36" height="46" rx="2" fill="white"/>
+    <!-- Book binding -->
+    <rect x="0" y="0" width="8" height="54" rx="2" fill="#38a169"/>
+    <circle cx="4" cy="12" r="2" fill="#276749"/>
+    <circle cx="4" cy="27" r="2" fill="#276749"/>
+    <circle cx="4" cy="42" r="2" fill="#276749"/>
+    <!-- Person on book -->
+    <circle cx="26" cy="18" r="8" fill="#e2e8f0"/>
+    <circle cx="26" cy="15" r="4" fill="#a0aec0"/>
+    <ellipse cx="26" cy="23" rx="5" ry="3" fill="#a0aec0"/>
+    <rect x="14" y="32" width="24" height="3" rx="1" fill="#e2e8f0"/>
+    <rect x="16" y="38" width="20" height="2" rx="1" fill="#edf2f7"/>
+  </g>
+  
+  <!-- Subtle decorative dots -->
+  <g fill="#4299e1" opacity="0.12">
+    <circle cx="180" cy="90" r="3"/>
+    <circle cx="844" cy="592" r="3"/>
+    <circle cx="950" cy="100" r="4"/>
+    <circle cx="74" cy="580" r="4"/>
+  </g>
+</svg>
