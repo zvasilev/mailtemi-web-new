@@ -6,7 +6,7 @@ author: Zhivko Vasilev
 date: 2026-01-15T05:00:00Z
 categories: [JMAP", "IMAP", "Email", "MSGraph"]
 featured: false
-draft: true
+draft: false
 ---
 
 The next Mailtemi release improves how conversations are displayed and threaded.
@@ -88,15 +88,4 @@ To make conversations consistent across protocols, Mailtemi relies on official e
 
 This work is also a foundation for future improvements.
 
-Search within conversations becomes more useful when the conversation structure is reliable. Conversation-level actions (archive all, snooze, mute) depend on knowing exactly which items belong together.
-
 For now, the goal was correctness: make conversations feel consistent regardless of which account or protocol is involved. The UI may not look dramatically different, but the threading underneath is now significantly more reliable.
-
----
-
-## Sources
-
-- [RFC 822 - Standard for the Format of ARPA Internet Text Messages (1982)](https://www.rfc-editor.org/rfc/rfc822)
-- [RFC 5322 - Internet Message Format (2008)](https://datatracker.ietf.org/doc/html/rfc5322)
-- [RFC 5256 - IMAP SORT and THREAD Extensions](https://datatracker.ietf.org/doc/html/rfc5256)
-- [JWZ Message Threading Algorithm](https://www.jwz.org/doc/threading.html)
