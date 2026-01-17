@@ -6,7 +6,7 @@ author: Zhivko Vasilev
 date: 2026-01-16T05:00:00Z
 categories: [JMAP", "Email", "Contacts"]
 featured: false
-draft: false
+draft: true
 ---
 
 Why protocol correctness matters more than UI when building contact synchronization.

@@ -6,7 +6,7 @@ author: Zhivko Vasilev
 date: 2026-01-15T05:00:00Z
 categories: [JMAP", "IMAP", "Email", "MSGraph"]
 featured: false
-draft: false
+draft: true
 ---
 
 The next Mailtemi release improves how conversations are displayed and threaded.
