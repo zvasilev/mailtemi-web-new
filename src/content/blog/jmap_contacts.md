@@ -3,10 +3,10 @@ title: "JMAP Contacts"
 subtitle: Laying the Groundwork
 image: "/images/posts/jmap-contacts.svg"
 author: Zhivko Vasilev
-date: 2026-01-16T05:00:00Z
+date: 2026-01-20T05:00:00Z
 categories: [JMAP", "Email", "Contacts"]
 featured: false
-draft: true
+draft: false
 ---
 
 Why protocol correctness matters more than UI when building contact synchronization.
