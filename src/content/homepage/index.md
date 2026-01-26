@@ -24,16 +24,16 @@ service:
           
 
   our_service:
-    - title: One View for All Accounts and Subfolders? 
-      description: View messages from all folders at once, supporting GMail and JMAP labels.<br><br>Sync folders seamlessly for easy organization.<br> Enjoy synchronized Display Names and Label colors for a clutter-free email experience. <br><br>Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
-      image: "/images/iphone/unified_inbox.png"
-    - title: All Your Protocols, One Inbox
-      description: Connect to any email provider with native protocol support. Modern JMAP for Fastmail, MS Graph for Office 365 with full contacts sync, traditional IMAP/SMTP for everything else, plus CardDAV and Google People API for unified contact management.
+    - title: Connect Everything
+      description: Native support for modern and legacy protocols means lightning-fast sync with any provider. JMAP delivers real-time updates with minimal bandwidth. MS Graph provides deep Office 365 integration. IMAP ensures compatibility with every email server.<br><br>Contacts sync seamlessly via CardDAV, Google People API, and JMAP Contacts—all in one app.
       image: "/images/protocols/unified-protocols.svg"
       list:
         - JMAP (Email + Contacts)
         - MS Graph (Office 365 + Contacts)
         - IMAP/SMTP + CardDAV + Google People API
+    - title: One View for All Accounts and Subfolders?
+      description: View messages from all folders at once, supporting GMail and JMAP labels.<br><br>Sync folders seamlessly for easy organization.<br> Enjoy synchronized Display Names and Label colors for a clutter-free email experience. <br><br>Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
+      image: "/images/iphone/unified_inbox.png"
     - title: Now on Android
       description: The same powerful features you love on iOS are now available on Android. Unified inbox across all your accounts, full JMAP support for Fastmail, MS Graph for Office 365, and IMAP for everything else.<br><br>Built with Jetpack Compose for a native Android experience. __*[Get it on Google Play](https://play.google.com/store/apps/details?id=com.mailtemi.email)*__
       image: "/images/android/list.png"
