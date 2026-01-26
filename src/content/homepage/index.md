@@ -40,8 +40,9 @@ service:
         - Synced display names across all providers
         - Smart organization without the clutter
     - title: Now on Android
-      description: The same powerful features you love on iOS are now available on Android. Unified inbox across all your accounts, full JMAP support for Fastmail, MS Graph for Office 365, and IMAP for everything else.<br><br>Built with Jetpack Compose for a native Android experience. __*[Get it on Google Play](https://play.google.com/store/apps/details?id=com.mailtemi.email)*__
+      description: Same app, same fast backend—just with a native Android interface. The sync engine that powers the iOS version runs on Android too, delivering the same reliability and performance you expect.<br><br>Built from the ground up with Jetpack Compose and Material Design. No compromises, no web wrappers—pure native Android. __*[Get it on Google Play](https://play.google.com/store/apps/details?id=com.mailtemi.email)*__
       image: "/images/android/list.png"
+      image2: "/images/android/viewer.png"
 
 
     

@@ -16,7 +16,7 @@ const { homepage_tab, our_service } = service;
         <div class="gx-5 row mt-12 items-center lg:mt-0">
           <div class={`lg:col-7 ${index % 2 === 0 ? "order-0" : "order-1"}`}>
             {item.image && (
-              <div class="relative flex justify-center">
+              <div class="relative flex justify-center gap-4">
                 {item.image.endsWith('.svg') ? (
                   <Image
                     class="max-h-[400px] w-auto object-contain drop-shadow-xl"
@@ -33,6 +33,17 @@ const { homepage_tab, our_service } = service;
                       width={667}
                       height={498}
                       src={item.image}
+                    />
+                  </div>
+                )}
+                {item.image2 && (
+                  <div class="h-[400px] overflow-hidden rounded-2xl drop-shadow-2xl">
+                    <Image
+                      class="h-[500px] w-auto object-cover object-top"
+                      alt="service"
+                      width={667}
+                      height={498}
+                      src={item.image2}
                     />
                   </div>
                 )}
