@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <!-- Background subtle pattern -->
+  <defs>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e5e5e5;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#999;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e5e5e5;stop-opacity:0" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Connection Lines (behind everything) -->
+  <!-- JMAP line -->
+  <path d="M150 120 Q200 180 250 210" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+  <!-- IMAP line -->
+  <path d="M80 230 Q150 240 250 250" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+  <!-- CardDAV line -->
+  <path d="M120 380 Q180 350 260 310" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+  <!-- MS Graph line -->
+  <path d="M480 100 Q420 160 350 210" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+  <!-- Google line -->
+  <path d="M520 320 Q450 300 350 280" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+
+  <!-- Animated dots on lines -->
+  <circle r="4" fill="#666">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M150 120 Q200 180 250 210"/>
+  </circle>
+  <circle r="4" fill="#666">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M80 230 Q150 240 250 250"/>
+  </circle>
+  <circle r="4" fill="#666">
+    <animateMotion dur="2.2s" repeatCount="indefinite" path="M120 380 Q180 350 260 310"/>
+  </circle>
+  <circle r="4" fill="#666">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M480 100 Q420 160 350 210"/>
+  </circle>
+  <circle r="4" fill="#666">
+    <animateMotion dur="2.3s" repeatCount="indefinite" path="M520 320 Q450 300 350 280"/>
+  </circle>
+
+  <!-- CENTER HUB - Unified Inbox -->
+  <g filter="url(#shadow)">
+    <circle cx="300" cy="260" r="70" fill="#1a1a1a"/>
+    <circle cx="300" cy="260" r="60" fill="#2d2d2d"/>
+    <!-- Inbox icon -->
+    <rect x="265" y="235" width="70" height="50" rx="6" fill="none" stroke="#fff" stroke-width="2.5"/>
+    <path d="M265 255 L300 275 L335 255" stroke="#fff" stroke-width="2.5" fill="none"/>
+    <text x="300" y="305" font-family="Arial, sans-serif" font-size="11" fill="#999" text-anchor="middle">UNIFIED INBOX</text>
+  </g>
+
+  <!-- JMAP Node (top-left) -->
+  <g filter="url(#shadow)">
+    <circle cx="120" cy="100" r="50" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- JSON brackets icon -->
+    <text x="120" y="95" font-family="monospace" font-size="28" fill="#1a1a1a" text-anchor="middle" font-weight="bold">{}</text>
+    <text x="120" y="120" font-family="Arial, sans-serif" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold">JMAP</text>
+  </g>
+  <text x="120" y="165" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Email + Contacts</text>
+
+  <!-- IMAP/SMTP Node (left) -->
+  <g filter="url(#shadow)">
+    <circle cx="60" cy="230" r="45" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- Envelope icon -->
+    <rect x="35" y="218" width="50" height="32" rx="3" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <path d="M35 220 L60 240 L85 220" stroke="#1a1a1a" stroke-width="2" fill="none"/>
+  </g>
+  <text x="60" y="290" font-family="Arial, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">IMAP/SMTP</text>
+  <text x="60" y="305" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Traditional Email</text>
+
+  <!-- CardDAV Node (bottom-left) -->
+  <g filter="url(#shadow)">
+    <circle cx="100" cy="390" r="45" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- Address book icon -->
+    <rect x="75" y="370" width="35" height="45" rx="3" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <rect x="73" y="375" width="4" height="35" rx="1" fill="#1a1a1a"/>
+    <circle cx="92" cy="382" r="6" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+    <path d="M82 400 Q92 395 102 400" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+  </g>
+  <text x="100" y="450" font-family="Arial, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">CardDAV</text>
+  <text x="100" y="465" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Contacts Sync</text>
+
+  <!-- MS Graph Node (top-right) -->
+  <g filter="url(#shadow)">
+    <circle cx="500" cy="90" r="50" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- Microsoft-style grid icon -->
+    <rect x="475" y="65" width="22" height="22" rx="2" fill="#1a1a1a"/>
+    <rect x="501" y="65" width="22" height="22" rx="2" fill="#666"/>
+    <rect x="475" y="91" width="22" height="22" rx="2" fill="#666"/>
+    <rect x="501" y="91" width="22" height="22" rx="2" fill="#999"/>
+  </g>
+  <text x="500" y="155" font-family="Arial, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">MS Graph</text>
+  <text x="500" y="170" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Office 365 + Contacts</text>
+
+  <!-- Google People API Node (right) -->
+  <g filter="url(#shadow)">
+    <circle cx="540" cy="320" r="45" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- People/users icon -->
+    <circle cx="530" cy="305" r="10" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <path d="M515 335 Q530 320 545 335" stroke="#1a1a1a" stroke-width="2" fill="none"/>
+    <circle cx="555" cy="310" r="8" fill="none" stroke="#666" stroke-width="1.5"/>
+    <path d="M545 332 Q555 322 565 332" stroke="#666" stroke-width="1.5" fill="none"/>
+  </g>
+  <text x="540" y="380" font-family="Arial, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Google</text>
+  <text x="540" y="395" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">People API</text>
+
+  <!-- Flow arrows pointing to center -->
+  <polygon points="245,220 255,215 255,225" fill="#666"/>
+  <polygon points="245,250 255,245 255,255" fill="#666"/>
+  <polygon points="255,300 265,295 260,305" fill="#666"/>
+  <polygon points="355,220 345,215 345,225" fill="#666"/>
+  <polygon points="355,280 345,275 345,285" fill="#666"/>
+</svg>

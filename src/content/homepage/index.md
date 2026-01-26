@@ -27,13 +27,13 @@ service:
     - title: One View for All Accounts and Subfolders? 
       description: View messages from all folders at once, supporting GMail and JMAP labels.<br><br>Sync folders seamlessly for easy organization.<br> Enjoy synchronized Display Names and Label colors for a clutter-free email experience. <br><br>Simplify your iOS inbox with Just One Inbox – see all your emails at a glance.
       image: "/images/iphone/unified_inbox.png"
-    - title: Support multiple mail protocols
-      description: Our system offers robust support for multiple mail protocols, ensuring seamless integration and interoperability across various email services.
-      image: "/images/iphone/protocols.png"
+    - title: All Your Protocols, One Inbox
+      description: Connect to any email provider with native protocol support. Modern JMAP for Fastmail, MS Graph for Office 365 with full contacts sync, traditional IMAP/SMTP for everything else, plus CardDAV and Google People API for unified contact management.
+      image: "/images/protocols/unified-protocols.svg"
       list:
-        - JMAP (JSON Meta Application Protocol)
-        - IMAP (Internet Message Access Protocol)
-        - MSGraph (Microsoft Graph)
+        - JMAP (Email + Contacts)
+        - MS Graph (Office 365 + Contacts)
+        - IMAP/SMTP + CardDAV + Google People API
     - title: Now on Android
       description: The same powerful features you love on iOS are now available on Android. Unified inbox across all your accounts, full JMAP support for Fastmail, MS Graph for Office 365, and IMAP for everything else.<br><br>Built with Jetpack Compose for a native Android experience. __*[Get it on Google Play](https://play.google.com/store/apps/details?id=com.mailtemi.email)*__
       image: "/images/android/list.png"
