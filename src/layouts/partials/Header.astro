@@ -111,13 +111,27 @@ const { pathname } = Astro.url;
         ))
       }
       <li class="nav-item mt-2 lg:hidden">
-        <a class="btn btn-white btn-sm border-border" href="https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306">
-          Download</a
-        >
+        <a class="btn btn-white btn-sm border-border inline-flex items-center gap-2" href="https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306">
+          <img src="/images/icons/apple.svg" alt="Apple" class="h-5 w-5" />
+          iOS
+        </a>
+      </li>
+      <li class="nav-item mt-2 lg:hidden">
+        <a class="btn btn-white btn-sm border-border inline-flex items-center gap-2" href="https://play.google.com/store/apps/details?id=com.mailtemi.email">
+          <img src="/images/icons/android.svg" alt="Android" class="h-5 w-5" />
+          Android
+        </a>
       </li>
     </ul>
-    <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
-      <a class="btn btn-white btn-sm" href="https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306"> Download iOS</a>
+    <div class="order-1 ml-auto hidden items-center gap-2 md:order-2 md:ml-0 lg:flex">
+      <a class="btn btn-white btn-sm inline-flex items-center gap-2" href="https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306">
+        <img src="/images/icons/apple.svg" alt="Apple" class="h-5 w-5" />
+        iOS
+      </a>
+      <a class="btn btn-white btn-sm inline-flex items-center gap-2" href="https://play.google.com/store/apps/details?id=com.mailtemi.email">
+        <img src="/images/icons/android.svg" alt="Android" class="h-5 w-5" />
+        Android
+      </a>
     </div>
   </nav>
 </header>

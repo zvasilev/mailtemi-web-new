@@ -19,12 +19,18 @@ const {
               <div class="mt-8 flex flex-col flex-wrap gap-4 sm:flex-row">
                 {buttons.map(({ label, link }, idx) => (
                   <a
-                    class="btn btn-white"
+                    class="btn btn-white inline-flex items-center gap-2"
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
                   >
+                    {link.includes("apple.com") && (
+                      <img src="/images/icons/apple.svg" alt="Apple" class="h-5 w-5" />
+                    )}
+                    {link.includes("play.google") && (
+                      <img src="/images/icons/android.svg" alt="Android" class="h-5 w-5" />
+                    )}
                     {label}
                   </a>
                 ))}
