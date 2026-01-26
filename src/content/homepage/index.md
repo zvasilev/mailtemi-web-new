@@ -1,12 +1,12 @@
 ---
 banner:
-  title: One Inbox. Every Folder. Simplified.
-  content: Effortlessly organize folders and labels from Office 365, JMAP, or Gmail into a seamless, unified view.<br><br> Mailtemi bridges the gap between email protocols, combining the modern efficiency of JMAP with full compatibility for IMAP and MSGraph. With every account and folder in one place, you’ll spend less time navigating and more time focusing on what matters. No extra steps, no compromises—just an inbox that works the way you need it to.
+  title: Email, Unified.
+  content: Tired of juggling multiple email apps? Mailtemi brings all your accounts together—Stalw.art, Fastmail, Office 365, Gmail—into one beautiful inbox.<br><br>Built for JMAP first. Full support for JMAP Email and JMAP Contacts—faster and more efficient than legacy protocols. Perfect for Stalw.art and Fastmail users, with seamless MS Graph and IMAP compatibility.<br><br>Privacy by design. No data collection, no tracking—your email stays on your device. Built on open standards (JMAP, IMAP, CardDAV) plus native MS Graph and Google APIs for full ecosystem integration.
   image: /images/ios-android/two-phones-small.png
   button:
     label: Download
     link: "https://apps.apple.com/us/app/mailtemi-mail-contacts/id1090492306"
-    enable: true
+    enable: false
 
 #service
 service:
