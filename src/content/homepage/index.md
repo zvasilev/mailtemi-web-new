@@ -34,9 +34,9 @@ service:
         - JMAP (JSON Meta Application Protocol)
         - IMAP (Internet Message Access Protocol)
         - MSGraph (Microsoft Graph)
-    - title: Android (Beta)
-      description: The UI is not as good as it needs to be, but the functionality for setup, listing, viewing, and composing emails works. <br>Need to get feedback after a year of cooking it. See the blog post about it __*[Mailtemi Beta (Android)](blog/mailtemi-beta)*__
-      image: "/images/posts/android-beta.webp"
+    - title: Now on Android
+      description: The same powerful features you love on iOS are now available on Android. Unified inbox across all your accounts, full JMAP support for Fastmail, MS Graph for Office 365, and IMAP for everything else.<br><br>Built with Jetpack Compose for a native Android experience. __*[Get it on Google Play](https://play.google.com/store/apps/details?id=com.mailtemi.email)*__
+      image: "/images/android/list.png"
 
 
     
