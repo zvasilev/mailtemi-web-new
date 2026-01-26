@@ -25,7 +25,7 @@ service:
 
   our_service:
     - title: Connect Everything
-      description: Native support for modern and legacy protocols means lightning-fast sync with any provider. JMAP delivers real-time updates with minimal bandwidth. MS Graph provides deep Office 365 integration. IMAP ensures compatibility with every email server.<br><br>Contacts sync seamlessly via CardDAV, Google People API, and JMAP Contacts—all in one app.
+      description: Native support for modern and legacy protocols means efficient sync with any provider. JMAP delivers real-time updates with minimal bandwidth. MS Graph provides deep Office 365 integration. IMAP ensures compatibility with every email server.<br><br>Contacts sync seamlessly via CardDAV, Google People API, and JMAP Contacts—all in one app.
       image: "/images/protocols/unified-protocols.svg"
       list:
         - JMAP (Email + Contacts)
@@ -33,7 +33,7 @@ service:
         - IMAP/SMTP + CardDAV + Google People API
     - title: All Folders, One View
       description: See every email from every account in a single, unified list. No more switching between folders or apps.
-      image: "/images/iphone/unified_inbox.png"
+      image: "/images/unified/folders-unified.svg"
       list:
         - IMAP folders and Gmail/JMAP labels merged seamlessly
         - Account colors for quick visual identification
@@ -49,15 +49,15 @@ service:
 
 ##key features
 key_features:
-  title: "The Highlighting Part Of Our Solution"
-  description: Mailtemi brings a suite of thoughtful features to simplify and enhance your email experience.
+  title: "Features"
+  description: Thoughtful features to simplify your email experience.
   feature_list:
     - icon: "tabler:inbox"  
       title: Unified Inbox
       content: Synchronize all emails, regardless of folders or labels, into a single view with seamless organization using label tags.
-    - icon: "tabler:users"  
+    - icon: "tabler:users"
       title: Contacts
-      content: Sync contacts via CardDAV, MS Graph Users, Google People, and soon JMAP Contacts, keeping your address book unified.
+      content: Sync contacts via CardDAV, MS Graph, Google People API, and JMAP Contacts—keeping your address book unified across all providers.
     - icon: "tabler:markdown"  
       title: Markdown
       content: Convert HTML emails to Markdown for secure, plain-format reading, or use the built-in Markdown editor for clarity and privacy.
@@ -96,16 +96,12 @@ testimonial:
       organization: jcwacky
       rating: four
       content: Was pleased to find a native app that supports JMAP for Fastmail (as their own app isn’t native). The basics work well, but I’d like to see, • In app browser support for links. • Ability to pin/favourite folders. • Ability for it to open the next newest message after archiving etc.
-    - author: Awesome app
+    - author: Fast and enjoyable
       organization: Hcarrega
       rating: five
-      content: OVery fast app and enjoyable.
+      content: Very fast app and enjoyable to use.
     - author: Useful and versatile app 
       organization: Haspi2
       rating: five
       content: Initially I was planning to try the app with an JMAP service but I also gave it a try with my Gmail accounts and it worked pretty well so I’ll start using it as my go-to app for email.
-    - author: Push 
-      organization: Montorao
-      rating: five
-      content: Tiene notificaciones push esta app?.
 ---

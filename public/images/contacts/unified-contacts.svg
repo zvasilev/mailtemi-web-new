@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" fill="none">
+  <!-- Background subtle pattern -->
+  <defs>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e5e5e5;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#999;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e5e5e5;stop-opacity:0" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Connection Lines -->
+  <path d="M120 100 Q180 150 240 180" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+  <path d="M80 250 Q150 245 240 230" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+  <path d="M150 380 Q200 320 250 270" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+  <path d="M480 100 Q420 150 360 180" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+  <path d="M500 320 Q430 290 360 260" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+
+  <!-- Animated dots -->
+  <circle r="4" fill="#666">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M120 100 Q180 150 240 180"/>
+  </circle>
+  <circle r="4" fill="#666">
+    <animateMotion dur="2.3s" repeatCount="indefinite" path="M80 250 Q150 245 240 230"/>
+  </circle>
+  <circle r="4" fill="#666">
+    <animateMotion dur="2.1s" repeatCount="indefinite" path="M150 380 Q200 320 250 270"/>
+  </circle>
+  <circle r="4" fill="#666">
+    <animateMotion dur="1.9s" repeatCount="indefinite" path="M480 100 Q420 150 360 180"/>
+  </circle>
+  <circle r="4" fill="#666">
+    <animateMotion dur="2.4s" repeatCount="indefinite" path="M500 320 Q430 290 360 260"/>
+  </circle>
+
+  <!-- CENTER HUB - Unified Contacts -->
+  <g filter="url(#shadow)">
+    <circle cx="300" cy="225" r="65" fill="#1a1a1a"/>
+    <circle cx="300" cy="225" r="55" fill="#2d2d2d"/>
+    <!-- Contact/Person icon -->
+    <circle cx="300" cy="205" r="18" fill="none" stroke="#fff" stroke-width="3"/>
+    <path d="M268 260 Q300 235 332 260" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="300" y="290" font-family="Arial, sans-serif" font-size="10" fill="#999" text-anchor="middle">UNIFIED</text>
+    <text x="300" y="302" font-family="Arial, sans-serif" font-size="10" fill="#999" text-anchor="middle">CONTACTS</text>
+  </g>
+
+  <!-- JMAP Contacts Node (top-left) -->
+  <g filter="url(#shadow)">
+    <circle cx="100" cy="80" r="45" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <text x="100" y="75" font-family="monospace" font-size="24" fill="#1a1a1a" text-anchor="middle" font-weight="bold">{}</text>
+    <text x="100" y="95" font-family="Arial, sans-serif" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="bold">JMAP</text>
+  </g>
+  <text x="100" y="140" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Contacts</text>
+
+  <!-- CardDAV Node (left) -->
+  <g filter="url(#shadow)">
+    <circle cx="60" cy="250" r="42" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- Address book icon -->
+    <rect x="40" y="232" width="28" height="36" rx="3" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <rect x="38" y="237" width="4" height="26" rx="1" fill="#1a1a1a"/>
+    <circle cx="54" cy="243" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+    <path d="M46 258 Q54 253 62 258" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+  </g>
+  <text x="60" y="307" font-family="Arial, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">CardDAV</text>
+
+  <!-- iCloud Node (bottom-left) -->
+  <g filter="url(#shadow)">
+    <circle cx="130" cy="390" r="42" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- Cloud icon -->
+    <path d="M110 395 Q105 380 118 375 Q120 365 135 365 Q150 365 152 378 Q165 380 162 395 Z" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  </g>
+  <text x="130" y="445" font-family="Arial, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">iCloud</text>
+
+  <!-- MS Graph Node (top-right) -->
+  <g filter="url(#shadow)">
+    <circle cx="500" cy="80" r="45" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- Microsoft grid icon -->
+    <rect x="478" y="58" width="18" height="18" rx="2" fill="#1a1a1a"/>
+    <rect x="500" y="58" width="18" height="18" rx="2" fill="#666"/>
+    <rect x="478" y="80" width="18" height="18" rx="2" fill="#666"/>
+    <rect x="500" y="80" width="18" height="18" rx="2" fill="#999"/>
+  </g>
+  <text x="500" y="140" font-family="Arial, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">MS Graph</text>
+
+  <!-- Google People API Node (right) -->
+  <g filter="url(#shadow)">
+    <circle cx="520" cy="320" r="42" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+    <!-- Google G stylized -->
+    <circle cx="520" cy="320" r="16" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <path d="M520 320 L536 320" stroke="#1a1a1a" stroke-width="3"/>
+    <path d="M536 308 L536 320" stroke="#1a1a1a" stroke-width="3"/>
+  </g>
+  <text x="520" y="377" font-family="Arial, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Google</text>
+  <text x="520" y="390" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">People API</text>
+
+  <!-- Flow arrows -->
+  <polygon points="235,185 245,180 245,190" fill="#666"/>
+  <polygon points="235,235 245,230 245,240" fill="#666"/>
+  <polygon points="248,268 258,263 253,273" fill="#666"/>
+  <polygon points="355,185 365,180 365,190" fill="#666"/>
+  <polygon points="355,260 365,255 365,265" fill="#666"/>
+</svg>
