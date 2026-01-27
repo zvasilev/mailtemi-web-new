@@ -4,16 +4,14 @@ page_title: What features are on our roadmap?
 
 # works
 milestones:
-  - title: Android
-    image: "/images/android/android.png"
+  - title: Calendaring
+    image: "/images/calendar/day-iphone-android.png"
     description: |
-      The goal is to bring the same functionality as the iOS version to Android, using native Android components and UX principles. 
-      This will ensure a seamless, optimized, and intuitive email experience tailored for Android users.
+      The next major release brings Calendaring — day, month, and year views, drag-and-drop event editing, recurring events, and calendar invitations. Fully native on both iOS and Android.
       <br>
-      There are 4+2 UI screens to port from iOS: four complex (Mailbox, Email List, Email Viewer, Composer) and two smaller, scattered screens (Settings sub-screens, error/Auth popups, toasts views). 
-      While all screens are functional, they are not yet polished for end-user use.
+      Starting with JMAP and CalDAV, with MSGraph and Google Calendar to follow. Offline editing works out of the box.
       <br>
-      Excited to announce that the first UI-ready screen is finished: Compose.
+      <a href="/blog/calendaring-progress/">Read more</a>
   - title: MacOS
     image: "/images/mac/mac.png"
     description: |
@@ -30,9 +28,9 @@ key_features:
     - icon: "tabler:users"  
       title: JMAP Contacts
       content: We're closely following the development of the JMAP Contacts specification. <br> Once it has completed the RFC process, we plan to support it in our application. <br>This will allow us to provide even more robust and efficient contact management features.
-    - icon: "tabler:calendar"  
+    - icon: "tabler:calendar"
       title: JMAP Calendars
-      content: Calendaring is complex and a long-term goal. <br>To become a fully-featured collaboration app, we are committed to adding JMAP calendar support in the future.
+      content: Calendaring is actively in progress. <br>JMAP Calendar and CalDAV support are coming in the next major release, with MSGraph and Google Calendar to follow. <a href="/blog/calendaring-progress/">Read more</a>.
     - icon: "tabler:copy"  
       title: Move/Copy Emails Across Accounts
       content: Move or copy emails between accounts, whether they use JMAP, IMAP, or MSGraph.
