@@ -25,12 +25,12 @@ key_features:
     - icon: "tabler:notification"  
       title: Push Notifications
       content: Will be limited to JMAP, MSGraph, and GMail API, which offer this notification mechanisms.<br><br>IMAP cannot achieve push notifications without requiring access to the user's password, which is not acceptable and will not be supported.
-    - icon: "tabler:users"  
-      title: JMAP Contacts
-      content: We're closely following the development of the JMAP Contacts specification. <br> Once it has completed the RFC process, we plan to support it in our application. <br>This will allow us to provide even more robust and efficient contact management features.
-    - icon: "tabler:calendar"
-      title: JMAP Calendars
-      content: Calendaring is actively in progress. <br>JMAP Calendar and CalDAV support are coming in the next major release, with MSGraph and Google Calendar to follow. <a href="/blog/calendaring-progress/">Read more</a>.
+    - icon: "tabler:plug"
+      title: OS Integrations
+      content: Deep integration with iOS and Android system APIs. <br>Contacts synced via a JMAP server like <a href="https://stalw.art">Stalwart</a> or <a href="https://www.fastmail.com">Fastmail</a> become a single source of truth, surfaced natively through Apple's ContactProvider and Android's ContactsProvider. <br>Files stored on a JMAP server appear seamlessly in the OS file picker via Apple's FileProvider and Android's Storage Access Framework.
+    - icon: "tabler:file"
+      title: JMAP Files
+      content: Cloud file storage over JMAP, based on the <a href="https://datatracker.ietf.org/doc/draft-ietf-jmap-filenode/">JMAP File Storage extension</a> draft. <br>Exposes files and folders as a structured hierarchy — a modern alternative to WebDAV-based file storage.
     - icon: "tabler:copy"  
       title: Move/Copy Emails Across Accounts
       content: Move or copy emails between accounts, whether they use JMAP, IMAP, or MSGraph.
