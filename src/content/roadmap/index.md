@@ -1,6 +1,6 @@
 ---
 title: Roadmap
-page_title: What features are on our roadmap?
+page_title: What features are on the roadmap?
 
 # works
 milestones:
@@ -15,7 +15,7 @@ milestones:
   - title: MacOS
     image: "/images/mac/mac.png"
     description: |
-      🚀 Mailtemi email app runs on macOS! <br>Our goals for the MacOS version of our app are ambitious. <br>We aim to provide full offline support, not just a cached subset of messages like in mobile versions. We're also working on features that will allow you to copy or move messages between accounts. <br><br>Additionally, we're developing the ability to import and export messages in **[MBOX](https://en.wikipedia.org/wiki/Mbox)** format. <br>While there is still work to be done, we're excited about the progress we've made so far.
+      🚀 Mailtemi email app runs on macOS! <br>The goals for the macOS version are ambitious. <br>Full offline support, not just a cached subset of messages like in mobile versions. Copy or move messages between accounts. <br><br>Import and export messages in **[MBOX](https://en.wikipedia.org/wiki/Mbox)** format. <br>There is still work to be done, but the progress so far is exciting.
               
   - title: Linux & Mobile
     image: "/images/gtk/gtk-combined.png"
@@ -44,4 +44,4 @@ key_features:
       title: Move/Copy Emails Across Accounts
       content: Move or copy emails between accounts, whether they use JMAP, IMAP, or MSGraph.
 ---
-You can email us your own ideas, too!<br /><br />
+You can email your own ideas, too!<br /><br />

@@ -79,8 +79,8 @@ key_features:
 
 #testimonial
 testimonial:
-  title: Our customers have nice things to say about us
-  description: Our iOS app has received positive ratings and reviews from users who appreciate its ease of use and helpful features. We’re grateful for their kind words and invite you to see what they have to say. 
+  title: Customers have nice things to say about Mailtemi
+  description: The iOS app has received positive ratings and reviews from users who appreciate its ease of use and helpful features. I'm grateful for their kind words and invite you to see what they have to say. 
   testimonial_list:
     - author: Great Email client!
       organization: Jsfrederick
