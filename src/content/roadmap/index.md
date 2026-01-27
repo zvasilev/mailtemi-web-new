@@ -17,6 +17,15 @@ milestones:
     description: |
       🚀 Mailtemi email app runs on macOS! <br>Our goals for the MacOS version of our app are ambitious. <br>We aim to provide full offline support, not just a cached subset of messages like in mobile versions. We're also working on features that will allow you to copy or move messages between accounts. <br><br>Additionally, we're developing the ability to import and export messages in **[MBOX](https://en.wikipedia.org/wiki/Mbox)** format. <br>While there is still work to be done, we're excited about the progress we've made so far.
               
+  - title: Linux & Mobile
+    image: "/images/gtk/gtk-combined.png"
+    description: |
+      What started as a GTK test harness is starting to look suspiciously like an email app.
+      <br>
+      A Linux phone running a native GTK email client, syncing your Microsoft Outlook calendar — with JSCalendar as the bridge.
+      <br>
+      GTK runs on Windows too.
+
 ## key features
 key_features:
   title: "Other features in the roadmap"
