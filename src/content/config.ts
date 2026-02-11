@@ -28,8 +28,16 @@ const pagesCollection = defineCollection({
   }),
 });
 
+// Generic collection for data-driven pages (features, homepage, roadmap)
+const genericCollection = defineCollection({
+  schema: z.record(z.any()),
+});
+
 // Export collections
 export const collections = {
   blog: blogCollection,
   pages: pagesCollection,
+  features: genericCollection,
+  homepage: genericCollection,
+  roadmap: genericCollection,
 };
